@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8049780aa38c8ee4cb307198e2465ba8, type: 3}
+  m_Name: PistolStatsPlayer
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: -8951538781084381578, guid: 7a7a5151c5459ce4195e29860b18f84e,
+    type: 3}
+  reloadCooldown: 1.5
+  maxBullets: 10
+  fireCooldown: 0.5
+  bulletLifeSpan: 1.5
+  bulletSpeed: 10
+  shootDamage: 5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
