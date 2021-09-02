@@ -9,49 +9,49 @@ public class Bullet : MonoBehaviour
     private float speed;
     private float lifeSpan;
     private LayerMask target;
-    private new ParticleSystem particleSystem;
     private GenericPool genericPool;
     private bool isDestroyed = false;
 
     private void Start()
     {
         genericPool = GenericPool.Instance;
-        particleSystem = GetComponent<ParticleSystem>();
     }
     private void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
-        lifeSpan = lifeSpan - Time.deltaTime;
-        if (lifeSpan <= 0)
-        {
-            if (!isDestroyed)
+            transform.position += transform.forward * speed * Time.deltaTime;
+            lifeSpan = lifeSpan - Time.deltaTime;
+            if (lifeSpan <= 0)
             {
-            OnDestroy();
+                if (!isDestroyed)
+                {
+                    DestroyActions();
 
+                }
             }
-        }
+        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((target & 1 << other.gameObject.layer) != 0)
-        {
-            other.gameObject.GetComponent<Actor>()?.TakeDamage(damage);
-            if (!isDestroyed)
+            if ((target & 1 << other.gameObject.layer) != 0)
             {
-            OnDestroy();
+                other.gameObject.GetComponent<Actor>()?.TakeDamage(damage);
+                if (!isDestroyed)
+                {
+                    DestroyActions();
 
+                }
             }
-        }
     }
-    private void OnDestroy()
+    private void DestroyActions()
     {
         isDestroyed = true;
         if (isDestroyed)
         {
             var particles = genericPool.SpawnFromPool("particles", transform.position, transform.rotation);
             particles.GetComponent<ParticleSystem>().Play();
-        gameObject.SetActive(false);
+            gameObject.SetActive(false);
 
         }
 
@@ -64,13 +64,6 @@ public class Bullet : MonoBehaviour
         damage = bulletDamage;
         isDestroyed = false;
         //TODO Recibir un el scriptable object del arma que esta casteando la bala para no duplicar valores.
-    }
-    private void ShowComponents(bool state)
-    {
-        gameObject.GetComponent<SphereCollider>().enabled = state;
-        gameObject.GetComponent<MeshRenderer>().enabled = state;
-        gameObject.GetComponent<TrailRenderer>().enabled = state;
-
     }
 
 }

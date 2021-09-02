@@ -41,6 +41,10 @@ public class GenericPool : MonoBehaviour
             return null;
         }
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        if(objectToSpawn == null)
+        {
+            Instantiate(objectToSpawn);
+        }
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = posToSpawn;
         objectToSpawn.transform.rotation = rotation;

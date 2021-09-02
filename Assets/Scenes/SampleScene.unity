@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolsList:
   - tag: bullet
-    poolSize: 50
+    poolSize: 15
     objectToPool: {fileID: 4411351866478423757, guid: 7a7a5151c5459ce4195e29860b18f84e,
       type: 3}
   - tag: particles
