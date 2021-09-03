@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "EnemySpawnerStats", menuName = "Stats/Spawners/EnemySpawnerStats", order = 0)]
-public class EnemySpawnerStats : ScriptableObject
+[CreateAssetMenu(fileName = "SpawnerStats", menuName = "Stats/Spawners/SpawnerStats", order = 0)]
+public class SpawnerStats : ScriptableObject
 {
     public float SpawnRate => spawnRate;
     [SerializeField] private float spawnRate;

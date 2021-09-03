@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemySpawnerStats enemySpawnerStats;
+    [SerializeField] private SpawnerStats enemySpawnerStats;
     [SerializeField] private List<BaseEnemy> instanceEnemies = new List<BaseEnemy>();
     private Spawner<BaseEnemy> enemyFactory = new Spawner<BaseEnemy>();
     private float spawnRate;
