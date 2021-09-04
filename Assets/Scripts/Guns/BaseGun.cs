@@ -38,7 +38,7 @@ public class BaseGun : MonoBehaviour
             particleSystem.Play();
             var bulletObject = genericPool.SpawnFromPool("bullet", firePoint.position, firePoint.rotation);
             var bulletComponent = bulletObject.GetComponent<Bullet>();
-            bulletComponent.OnSetValues(weaponStats.TargetLayer, weaponStats.BulletSpeed, weaponStats.BulletLifeSpan, weaponStats.ShootDamage);
+            bulletComponent.OnSetValues(weaponStats);
             bulletsAmount--;
             hasShooted = true;
         }

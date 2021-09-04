@@ -36,7 +36,8 @@ public class Bullet : MonoBehaviour
     {
             if ((target & 1 << other.gameObject.layer) != 0)
             {
-                other.gameObject.GetComponent<Actor>()?.TakeDamage(damage);
+          TakeDamageCommand damageCommand = new TakeDamageCommand(other.GetComponent<Actor>(), damage);
+            damageCommand.Do();
                 if (!isDestroyed)
                 {
                     DestroyActions();
@@ -56,12 +57,12 @@ public class Bullet : MonoBehaviour
         }
 
     }
-    public void OnSetValues(LayerMask targetLayer, float bulletSpeed, float lifeTime, float bulletDamage)
+    public void OnSetValues(GunStats owner)
     {
-        target = targetLayer;
-        speed = bulletSpeed;
-        lifeSpan = lifeTime;
-        damage = bulletDamage;
+        target = owner.TargetLayer;
+        speed = owner.BulletSpeed;
+        lifeSpan = owner.BulletLifeSpan;
+        damage = owner.ShootDamage;
         isDestroyed = false;
         //TODO Recibir un el scriptable object del arma que esta casteando la bala para no duplicar valores.
     }
