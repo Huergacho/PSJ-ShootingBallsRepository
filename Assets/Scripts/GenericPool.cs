@@ -35,19 +35,36 @@ public class GenericPool : MonoBehaviour
     }
     public GameObject SpawnFromPool(string tag,Vector3 posToSpawn, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(tag)) // Chequeo de si la key existe
         {
             Debug.LogWarning("no existe pool con" + tag);
             return null;
         }
+       
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-        if(objectToSpawn == null)
+        if (!objectToSpawn.activeSelf)
         {
-            Instantiate(objectToSpawn);
+            objectToSpawn.SetActive(true);
+            objectToSpawn.transform.position = posToSpawn;
+            objectToSpawn.transform.rotation = rotation;
         }
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = posToSpawn;
-        objectToSpawn.transform.rotation = rotation;
+        else
+        {
+            var newObject = Instantiate(objectToSpawn);
+            objectToSpawn = newObject;
+            poolDictionary[tag].Enqueue(objectToSpawn);
+            objectToSpawn.SetActive(true);
+            objectToSpawn.transform.position = posToSpawn;
+            objectToSpawn.transform.rotation = rotation;
+        }
+
+        
+        
+        IPooleable pooledObj = objectToSpawn.GetComponent<IPooleable>();
+        if(pooledObj != null)
+        {
+            pooledObj.OnObjectSpawn();
+        }
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
         

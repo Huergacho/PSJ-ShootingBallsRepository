@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour,IPooleable
 {
     private float damage;
     private Bullet type = null;
@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        genericPool = GenericPool.Instance;
+        OnObjectSpawn();
     }
     private void Update()
     {
@@ -52,6 +52,10 @@ public class Bullet : MonoBehaviour
         {
             var particles = genericPool.SpawnFromPool("particles", transform.position, transform.rotation);
             particles.GetComponent<ParticleSystem>().Play();
+            if (!particles.GetComponent<ParticleSystem>().isEmitting)
+            {
+                particles.SetActive(false);
+            }
             gameObject.SetActive(false);
 
         }
@@ -67,4 +71,8 @@ public class Bullet : MonoBehaviour
         //TODO Recibir un el scriptable object del arma que esta casteando la bala para no duplicar valores.
     }
 
+    public void OnObjectSpawn()
+    {
+        genericPool = GenericPool.Instance;
+    }
 }
