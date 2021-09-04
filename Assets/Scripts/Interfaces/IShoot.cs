@@ -7,15 +7,9 @@ public interface IShoot
     Bullet BulletPrefab { get; }
     Transform FirePoint { get; }
     float ShootDamage { get; }
-
-    float CurrentReloadTime { get; }
-
     bool CanShoot { get; }
-
     float ReloadCooldown { get; }
-
     int BulletsAmount { get; }
-
     int MaxBullets { get;}
     float WeaponFireRate { get; }
     float FireCooldown { get; }
