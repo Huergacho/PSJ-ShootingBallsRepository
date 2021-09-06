@@ -28,7 +28,10 @@ public class GenericPool : MonoBehaviour
             for (int i = 0; i <pool.poolSize; i++)
             {
                 GameObject obj = Instantiate(pool.objectToPool);
-                obj.transform.parent = pool.objectFather.transform;
+                if(pool.objectFather != null)
+                { 
+                    obj.transform.parent = pool.objectFather.transform;
+                }
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
