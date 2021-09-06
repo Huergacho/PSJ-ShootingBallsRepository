@@ -5,24 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof (PlayerController))]
 public class PlayerInputs : MonoBehaviour
 {
-    [SerializeField] private PlayerController character;
+    private Actor character;
+    [SerializeField]private PlayerController characterController;
     private void Start()
     {
-        character = GetComponent<PlayerController>();
+
+        character  = GameManager.instance.mainCharacter;
+        characterController = GetComponent<PlayerController>();
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            character.Shoot();
+            characterController.Shoot();
         }
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 moveDirection = new Vector3(moveX, 0, moveZ);
-        character.Move(moveDirection);
+        characterController.Move(moveDirection);
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            character.MakeJump();
+            characterController.MakeJump();
         }
     }
 }

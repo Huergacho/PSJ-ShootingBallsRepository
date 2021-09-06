@@ -10,6 +10,7 @@ public class GenericPool : MonoBehaviour
         [SerializeField] public string tag;
         [SerializeField] public int poolSize;
         [SerializeField] public GameObject objectToPool;
+        [SerializeField] public GameObject objectFather;
     }
     public List<Pool> poolsList;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
@@ -27,6 +28,7 @@ public class GenericPool : MonoBehaviour
             for (int i = 0; i <pool.poolSize; i++)
             {
                 GameObject obj = Instantiate(pool.objectToPool);
+                obj.transform.parent = pool.objectFather.transform;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
