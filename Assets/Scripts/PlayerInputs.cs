@@ -9,12 +9,11 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField]private PlayerController characterController;
     private void Start()
     {
-
-        character  = GameManager.instance.mainCharacter;
-        characterController = GetComponent<PlayerController>();
     }
     private void Update()
     {
+        if(characterController == null)
+        characterController = GameManager.instance.mainCharacter;
         if (Input.GetKey(KeyCode.Mouse0))
         {
             characterController.Shoot();

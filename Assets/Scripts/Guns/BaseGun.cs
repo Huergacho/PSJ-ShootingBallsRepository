@@ -49,13 +49,25 @@ public class BaseGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FireCooldown();
+        Reload();
+  
+    }
+    public virtual void SetBullets(int bulletsToSet, bool increaseBullets)
+    {
+        if (increaseBullets)
+            currentMaxBullets += bulletsToSet;
+        else currentMaxBullets = bulletsToSet;
+    }
+    private void FireCooldown()
+    {
         if (hasShooted)
         {
             weaponFireRate = weaponFireRate - Time.deltaTime;
             canShoot = false;
             if (!particleSystem.isPlaying)
             {
-            particleSystem.Stop();
+                particleSystem.Stop();
             }
             if (weaponFireRate <= 0)
             {
@@ -64,22 +76,19 @@ public class BaseGun : MonoBehaviour
                 hasShooted = false;
             }
         }
-        if( bulletsAmount <= 0)
+    }
+    private void Reload()
+    {
+        if (bulletsAmount <= 0)
         {
             canShoot = false;
             currentReloadTime = currentReloadTime - Time.deltaTime;
-            if(currentReloadTime <= 0)
+            if (currentReloadTime <= 0)
             {
                 canShoot = true;
                 bulletsAmount = currentMaxBullets;
                 currentReloadTime = weaponStats.ReloadCooldown;
             }
         }
-    }
-    public virtual void SetBullets(int bulletsToSet, bool increaseBullets)
-    {
-        if (increaseBullets)
-            currentMaxBullets += bulletsToSet;
-        else currentMaxBullets = bulletsToSet;
     }
 }
