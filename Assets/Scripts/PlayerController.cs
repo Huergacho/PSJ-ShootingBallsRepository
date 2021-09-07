@@ -40,7 +40,7 @@ public class PlayerController : ShootingActor
     public void MakeJump()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit,  1f ,groundLayer))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
         }
