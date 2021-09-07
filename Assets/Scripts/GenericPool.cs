@@ -55,12 +55,10 @@ public class GenericPool : MonoBehaviour
         }
         else
         {
-            var newObject = Instantiate(objectToSpawn);
-            objectToSpawn = newObject;
+            var newObject = Instantiate(objectToSpawn.gameObject);
+            newObject.transform.parent = objectToSpawn.transform.parent;
             poolDictionary[tag].Enqueue(objectToSpawn);
-            objectToSpawn.SetActive(true);
-            objectToSpawn.transform.position = posToSpawn;
-            objectToSpawn.transform.rotation = rotation;
+            objectToSpawn = newObject;
         }
 
         
