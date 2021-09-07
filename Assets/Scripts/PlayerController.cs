@@ -49,4 +49,8 @@ public class PlayerController : ShootingActor
     {
         equipedGun?.Shoot();  
     }
+    public int GetActualAmmo()
+    {
+        return equipedGun.BulletsAmount;
+    }
 }
