@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerController : ShootingActor
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
-
+    public static event Action<int> ammoQuantity;
     private void Awake()
     {
         
@@ -21,6 +21,7 @@ public class PlayerController : ShootingActor
     {
         base.Update();
         MoveToMousePosition();
+        ShowActualAmmo();
     }
     void MoveToMousePosition()
     {
@@ -49,8 +50,9 @@ public class PlayerController : ShootingActor
     {
         equipedGun?.Shoot();  
     }
-    public int GetActualAmmo()
+    public void ShowActualAmmo()
     {
-        return equipedGun.BulletsAmount;
+        ammoQuantity.Invoke(equipedGun.BulletsAmount);
+
     }
 }
