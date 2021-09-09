@@ -7,6 +7,7 @@ public class PlayerController : ShootingActor
     [SerializeField] private float jumpForce;
     [SerializeField] private LayerMask groundLayer;
     public static event Action<int> ammoQuantity;
+    private bool canMove;
     private void Awake()
     {
         
@@ -22,6 +23,14 @@ public class PlayerController : ShootingActor
         base.Update();
         MoveToMousePosition();
         ShowActualAmmo();
+        if (canMove == true)
+        {
+            animationManager.ChangeState(AnimationManager.State.run);
+        }
+        else
+        {
+            animationManager.ChangeState(AnimationManager.State.idle);
+        }
     }
     void MoveToMousePosition()
     {
@@ -35,7 +44,6 @@ public class PlayerController : ShootingActor
     }
     public void Move(Vector3 direction)
     {
-
         transform.position += direction * speed * Time.deltaTime;
     }
     public void MakeJump()
@@ -48,11 +56,16 @@ public class PlayerController : ShootingActor
     }
     public override void Shoot()
     {
-        equipedGun?.Shoot();  
+        equipedGun?.Shoot();
+        animationManager.ChangeState(AnimationManager.State.shoot);
     }
     public void ShowActualAmmo()
     {
         ammoQuantity.Invoke(equipedGun.BulletsAmount);
 
+    }
+    public void isMoving(bool isMoving)
+    {
+        canMove = isMoving;
     }
 }

@@ -91,4 +91,8 @@ public class BaseGun : MonoBehaviour
             }
         }
     }
+    public bool IsShooting()
+    {
+        return hasShooted;
+    }
 }
