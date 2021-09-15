@@ -29,9 +29,7 @@ public class AnimationManager : MonoBehaviour
             case State.run:
                 animator.SetFloat("Speed", 1);
                 break;
-            case State.shoot:
-                animator.Play("Shoot");
-                break;
+                
 
         }
     }

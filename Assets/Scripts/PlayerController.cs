@@ -8,6 +8,7 @@ public class PlayerController : ShootingActor
     [SerializeField] private LayerMask groundLayer;
     public static event Action<int> ammoQuantity;
     private bool canMove;
+    private bool canCheck;
     private void Awake()
     {
         
@@ -39,6 +40,8 @@ public class PlayerController : ShootingActor
         {
             var target = hitInfo.point;
             target.y = transform.position.y;
+            var distance = Vector3.Distance(transform.position, hitInfo.point);
+            if(distance >= 1f)
             transform.LookAt(target);
         }
     }

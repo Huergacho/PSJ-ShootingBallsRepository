@@ -28,8 +28,9 @@ public class PlayerInputs : MonoBehaviour
         else
         {
             characterController.isMoving(true);
+            characterController.Move(moveDirection);
         }
-        characterController.Move(moveDirection);
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             characterController.MakeJump();

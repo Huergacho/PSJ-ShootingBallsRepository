@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof (Rigidbody),typeof(AnimationManager))]
+[RequireComponent(typeof (Rigidbody))]
  public class Actor : MonoBehaviour, IDamagable,IMovable
 {
     [SerializeField] protected AnimationManager animationManager;
