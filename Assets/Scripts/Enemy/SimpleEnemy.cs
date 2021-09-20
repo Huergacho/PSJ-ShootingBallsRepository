@@ -13,7 +13,7 @@ public class SimpleEnemy : BaseEnemy
     {
         transform.LookAt(followTarget.transform);
         transform.position += transform.forward * speed * Time.deltaTime;
-
+        
     }
     
 }

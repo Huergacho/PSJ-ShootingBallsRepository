@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof (Rigidbody))]
  public class Actor : MonoBehaviour, IDamagable,IMovable
 {
+    [SerializeField] protected AnimationManager animationManager;
     [SerializeField]private ActorStats actorStats;
     protected float speed;
     protected float currentLife;
@@ -11,8 +12,11 @@ using UnityEngine;
     public float Speed => speed;
     public float MaxSpeed => actorStats.MaxSpeed;
     public int MaxLife => actorStats.MaxLife;
+    protected Animator animator;
     public virtual void Start()
     {
+        animator = GetComponent<Animator>();
+        animationManager = GetComponent<AnimationManager>();
         rb = GetComponent<Rigidbody>();
         currentLife = actorStats.MaxLife;
         speed = actorStats.MaxSpeed;
