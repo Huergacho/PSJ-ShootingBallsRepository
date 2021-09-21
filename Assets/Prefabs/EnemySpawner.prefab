@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpawnerStats: {fileID: 11400000, guid: 0160768ac4bf88e49a079d1c800c8dec, type: 2}
   instanceEnemies:
-  - {fileID: 7421252708536429066, guid: 4ff54a44eef8bf447a476fa9d1775c13, type: 3}
+  - {fileID: 13596303367537525, guid: b5ff04e28198fff4d99ddccd89777352, type: 3}
   targetToFollow: {fileID: 0}

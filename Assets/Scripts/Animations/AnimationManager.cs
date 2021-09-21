@@ -7,7 +7,7 @@ public class AnimationManager : MonoBehaviour
 {
    public enum State
     {
-        idle, run, shoot
+        idle, run
     }
     private  State currentState;
     private Animator animator;

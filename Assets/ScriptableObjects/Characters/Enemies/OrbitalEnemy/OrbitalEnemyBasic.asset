@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OrbitalEnemyBasic
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  maxLife: 10
+  maxLife: 30

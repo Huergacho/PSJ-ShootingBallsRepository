@@ -19,7 +19,7 @@ public class PlayerController : ShootingActor
         GameManager.instance.mainCharacter = this;
     }
     // Update is called once per frame
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
         MoveToMousePosition();
@@ -60,7 +60,7 @@ public class PlayerController : ShootingActor
     public override void Shoot()
     {
         equipedGun?.Shoot();
-        animationManager.ChangeState(AnimationManager.State.shoot);
+       // animationManager.ChangeState(AnimationManager.State.shoot);
     }
     public void ShowActualAmmo()
     {

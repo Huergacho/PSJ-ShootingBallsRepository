@@ -44,7 +44,7 @@ using UnityEngine;
             currentLife = actorStats.MaxLife;
         }
     }
-    public virtual void Update()
+    protected virtual void Update()
     {
         Move();
     }
@@ -52,7 +52,7 @@ using UnityEngine;
     {
         Destroy(gameObject);
     }
-    public virtual void OnHit()
+    protected virtual void OnHit()
     {
 
     }

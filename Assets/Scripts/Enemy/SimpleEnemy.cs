@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class SimpleEnemy : BaseEnemy
 {
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
-        Shoot();
+
     }
     public override void Move()
     {
         transform.LookAt(followTarget.transform);
         transform.position += transform.forward * speed * Time.deltaTime;
-        
     }
     
 }

@@ -15,7 +15,7 @@ public abstract class BaseEnemy : ShootingActor
         base.Start();
     }
     // Update is called once per frame
-    public override void Update()
+    protected override void Update()
     {
         DetectEnemy();
         if (hasDetectedEnemy)
@@ -28,6 +28,8 @@ public abstract class BaseEnemy : ShootingActor
                 alertTime = 0;
             }
         }
+        OnAnimation();
+
     }
     void DetectEnemy()
     {
@@ -42,12 +44,23 @@ public abstract class BaseEnemy : ShootingActor
 
         }
     }
-    public override void OnHit()
+    protected override void OnHit()
     {
         hasDetectedEnemy = true;
     }
     public void SetFollowTarget(Actor target)
     {
         followTarget = target;
+    }
+    protected void OnAnimation()
+    {
+        if (hasDetectedEnemy && animationManager != null)
+        {
+            animationManager.ChangeState(AnimationManager.State.run);
+        }
+        else if (animationManager != null && !hasDetectedEnemy)
+        {
+            animationManager.ChangeState(AnimationManager.State.idle);
+        }
     }
 }
