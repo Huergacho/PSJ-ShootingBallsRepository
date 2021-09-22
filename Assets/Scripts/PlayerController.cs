@@ -17,10 +17,11 @@ public class PlayerController : ShootingActor
     {
         base.Start();
         GameManager.instance.mainCharacter = this;
+        LevelGeneration.spawnPoint += Spawn;
     }
-    // Update is called once per frame
     protected override void Update()
     {
+
         base.Update();
         MoveToMousePosition();
         ShowActualAmmo();
@@ -64,11 +65,15 @@ public class PlayerController : ShootingActor
     }
     public void ShowActualAmmo()
     {
-        ammoQuantity.Invoke(equipedGun.BulletsAmount);
+        ammoQuantity?.Invoke(equipedGun.BulletsAmount);
 
     }
     public void isMoving(bool isMoving)
     {
         canMove = isMoving;
+    }
+    private void Spawn(Vector3 worldPos)
+    {
+        transform.position = worldPos;
     }
 }

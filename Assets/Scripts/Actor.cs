@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof (Rigidbody))]
- public class Actor : MonoBehaviour, IDamagable,IMovable
+[RequireComponent(typeof(Rigidbody))]
+public class Actor : MonoBehaviour, IDamagable, IMovable
 {
     [SerializeField] protected AnimationManager animationManager;
-    [SerializeField]private ActorStats actorStats;
+    [SerializeField] private ActorStats actorStats;
     protected float speed;
     protected float currentLife;
     protected Rigidbody rb;
@@ -15,6 +15,7 @@ using UnityEngine;
     protected Animator animator;
     public virtual void Start()
     {
+        
         animator = GetComponent<Animator>();
         animationManager = GetComponent<AnimationManager>();
         rb = GetComponent<Rigidbody>();

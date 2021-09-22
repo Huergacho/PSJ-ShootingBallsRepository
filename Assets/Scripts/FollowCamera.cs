@@ -8,6 +8,7 @@ public class FollowCamera : MonoBehaviour
     public Vector3 target_Offset;
     private void Start()
     {
+        if(target)
         target_Offset = transform.position - target.position;
     }
     void Update()
