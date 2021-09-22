@@ -21,12 +21,14 @@ public class LevelGeneration : MonoBehaviour
     [SerializeField] private LayerMask roomLayerMask;
     public static event Action<Vector3> spawnPoint;
     [SerializeField] private int randomStartingPos;
+    [SerializeField] private Transform startRoom = null;
+    [SerializeField] private Transform lastRoom = null;
  
     private void Start()
     {
         randomStartingPos = Random.Range(0, spawnPositions.Length);
         transform.position = spawnPositions[randomStartingPos].position;
-        
+        startRoom.position = transform.position;
         Instantiate(rooms[0], transform.position, Quaternion.identity);
         direction = Random.Range(1, 6);
         
@@ -114,6 +116,7 @@ public class LevelGeneration : MonoBehaviour
             else
             {
                 canGenerate = false;
+                lastRoom.position = transform.position;
                 spawnPoint?.Invoke(spawnPositions[randomStartingPos].position);
             }
 

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2111cdb6029f649b3bd6684ef6cf43, type: 3}
   m_Name: MainCharBasic
   m_EditorClassIdentifier: 
-  maxSpeed: 10
+  maxSpeed: 2000
+  runSpeed: 2500
   maxLife: 100

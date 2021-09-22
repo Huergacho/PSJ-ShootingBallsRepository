@@ -25,13 +25,14 @@ public class PlayerController : ShootingActor
         base.Update();
         MoveToMousePosition();
         ShowActualAmmo();
+
         if (canMove == true)
         {
-            animationManager.ChangeState(AnimationManager.State.run);
+            animationManager?.ChangeState(AnimationManager.State.run);
         }
         else
         {
-            animationManager.ChangeState(AnimationManager.State.idle);
+            animationManager?.ChangeState(AnimationManager.State.idle);
         }
     }
     void MoveToMousePosition()
@@ -48,7 +49,18 @@ public class PlayerController : ShootingActor
     }
     public void Move(Vector3 direction)
     {
-        transform.position += direction * speed * Time.deltaTime;
+        if (!isRunning)
+        {
+            rb.velocity = direction * speed * Time.deltaTime;
+        }
+        else
+        {
+            rb.velocity = direction * actorStats.RunSpeed * Time.deltaTime;
+        }
+        if(direction == Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
     public void MakeJump()
     {

@@ -21,6 +21,7 @@ public class PlayerInputs : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 moveDirection = new Vector3(moveX, 0, moveZ);
+        Vector3 directionNormalized =  moveDirection.normalized;
         if(moveDirection == Vector3.zero)
         {
             characterController.isMoving(false);
@@ -28,9 +29,17 @@ public class PlayerInputs : MonoBehaviour
         else
         {
             characterController.isMoving(true);
-            characterController.Move(moveDirection);
+            characterController.Move(directionNormalized);
         }
-
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // (Actor)characterController.OnSprint(true);
+            characterController.OnSprint(true);
+        }
+        else
+        {
+            characterController.OnSprint(false);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             characterController.MakeJump();

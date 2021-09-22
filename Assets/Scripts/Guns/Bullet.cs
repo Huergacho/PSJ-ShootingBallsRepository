@@ -32,18 +32,31 @@ public class Bullet : MonoBehaviour,IPooleable
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-            if ((target & 1 << other.gameObject.layer) != 0)
-            {
-          TakeDamageCommand damageCommand = new TakeDamageCommand(other.GetComponent<Actor>(), damage);
-            damageCommand.Do();
-                if (!isDestroyed)
-                {
-                    DestroyActions();
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //        if ((target & 1 << other.gameObject.layer) != 0)
+    //        {
+    //      TakeDamageCommand damageCommand = new TakeDamageCommand(other.GetComponent<Actor>(), damage);
+    //        damageCommand.Do();
+    //            if (!isDestroyed)
+    //            {
+    //                DestroyActions();
 
-                }
+    //            }
+    //        }
+    //}
+    private void OnCollisionEnter(Collision other)
+    {
+        if ((target & 1 << other.gameObject.layer) != 0)
+        {
+            TakeDamageCommand damageCommand = new TakeDamageCommand(other.gameObject.GetComponent<Actor>(), damage);
+            damageCommand.Do();
+            if (!isDestroyed)
+            {
+                DestroyActions();
+
             }
+        }
     }
     private void DestroyActions()
     {

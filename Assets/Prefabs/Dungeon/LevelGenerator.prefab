@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 3691879343544341953, guid: 6ecf11721acc9da42b704501290cb587, type: 3}
   - {fileID: 3414811543391488865, guid: e46f7e6a9c5b983478b2c8c9ca00ae73, type: 3}
   moveAmount: 20
-  timeToStart: 0.25
+  timeToStart: 0.1
   minX: -40
   minZ: -40
   maxX: 40
@@ -64,3 +64,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   randomStartingPos: 0
+  startRoom: {fileID: 0}
+  lastRoom: {fileID: 0}

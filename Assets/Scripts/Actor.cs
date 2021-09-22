@@ -5,7 +5,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour, IDamagable, IMovable
 {
     [SerializeField] protected AnimationManager animationManager;
-    [SerializeField] private ActorStats actorStats;
+    [SerializeField] protected ActorStats actorStats;
     protected float speed;
     protected float currentLife;
     protected Rigidbody rb;
@@ -13,6 +13,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     public float MaxSpeed => actorStats.MaxSpeed;
     public int MaxLife => actorStats.MaxLife;
     protected Animator animator;
+    protected bool isRunning;
     public virtual void Start()
     {
         
@@ -20,7 +21,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
         animationManager = GetComponent<AnimationManager>();
         rb = GetComponent<Rigidbody>();
         currentLife = actorStats.MaxLife;
-        speed = actorStats.MaxSpeed;
+        speed = MaxSpeed;
     }
 
     public virtual void Move()
@@ -48,6 +49,10 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     protected virtual void Update()
     {
         Move();
+        if (speed > MaxSpeed)
+        {
+            speed = MaxSpeed;
+        }
     }
     void OnDestroy()
     {
@@ -56,5 +61,9 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     protected virtual void OnHit()
     {
 
+    }
+    public void OnSprint(bool canRun)
+    {
+        isRunning = canRun;
     }
 }
