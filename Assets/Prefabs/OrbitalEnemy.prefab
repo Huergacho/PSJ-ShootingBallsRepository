@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31592af613b4e9c48b5b0e118283562a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationManager: {fileID: 0}
   actorStats: {fileID: 11400000, guid: 6a185e4342f2a5648aacb48a78f0e07d, type: 2}
   equipedGun: {fileID: 724995929711161974}
   enemyStats: {fileID: 11400000, guid: 27f85ca6e71ceea44ae488806234fcd8, type: 2}

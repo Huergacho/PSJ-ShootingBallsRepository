@@ -10,6 +10,7 @@ public class GenericPool : MonoBehaviour
         [SerializeField] public string tag;
         [SerializeField] public int poolSize;
         [SerializeField] public GameObject objectToPool;
+        [SerializeField] public GameObject objectFather;
     }
     public List<Pool> poolsList;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
@@ -27,6 +28,10 @@ public class GenericPool : MonoBehaviour
             for (int i = 0; i <pool.poolSize; i++)
             {
                 GameObject obj = Instantiate(pool.objectToPool);
+                if(pool.objectFather != null)
+                { 
+                    obj.transform.parent = pool.objectFather.transform;
+                }
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -35,15 +40,34 @@ public class GenericPool : MonoBehaviour
     }
     public GameObject SpawnFromPool(string tag,Vector3 posToSpawn, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(tag)) // Chequeo de si la key existe
         {
             Debug.LogWarning("no existe pool con" + tag);
             return null;
         }
+       
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = posToSpawn;
-        objectToSpawn.transform.rotation = rotation;
+        if (!objectToSpawn.activeSelf)
+        {
+            objectToSpawn.SetActive(true);
+            objectToSpawn.transform.position = posToSpawn;
+            objectToSpawn.transform.rotation = rotation;
+        }
+        else
+        {
+            var newObject = Instantiate(objectToSpawn.gameObject);
+            newObject.transform.parent = objectToSpawn.transform.parent;
+            poolDictionary[tag].Enqueue(objectToSpawn);
+            objectToSpawn = newObject;
+        }
+
+        
+        
+        IPooleable pooledObj = objectToSpawn.GetComponent<IPooleable>();
+        if(pooledObj != null)
+        {
+            pooledObj.OnObjectSpawn();
+        }
         poolDictionary[tag].Enqueue(objectToSpawn);
         return objectToSpawn;
         

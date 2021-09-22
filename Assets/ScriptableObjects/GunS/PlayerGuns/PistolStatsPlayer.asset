@@ -18,7 +18,7 @@ MonoBehaviour:
   maxBullets: 10
   fireCooldown: 0.5
   bulletLifeSpan: 1.5
-  bulletSpeed: 10
+  bulletSpeed: 20
   shootDamage: 5
   targetLayer:
     serializedVersion: 2

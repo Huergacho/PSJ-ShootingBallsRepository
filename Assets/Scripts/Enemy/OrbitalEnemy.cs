@@ -9,6 +9,14 @@ public class OrbitalEnemy : BaseEnemy
         base.Start();
         rb = GetComponent<Rigidbody>();
     }
+    protected override void Update()
+    {
+        base.Update();
+        if (!hasDetectedEnemy)
+        {
+            transform.LookAt(followTarget.transform.position);
+        }
+    }
     public override void Move()
     {
         Vector3 relativePos = followTarget.transform.position - transform.position;
@@ -18,11 +26,7 @@ public class OrbitalEnemy : BaseEnemy
 
         transform.localRotation = Quaternion.Slerp(current, rotation, Time.deltaTime);
         transform.Translate(0, 0, 3 * speed* Time.deltaTime);
-       if(rb.velocity.magnitude <= 0)
-        {
-            transform.LookAt(followTarget.transform.position);
-            Shoot();
-        }
+
     }
 
 

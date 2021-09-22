@@ -38,7 +38,7 @@ public class BaseGun : MonoBehaviour
             particleSystem.Play();
             var bulletObject = genericPool.SpawnFromPool("bullet", firePoint.position, firePoint.rotation);
             var bulletComponent = bulletObject.GetComponent<Bullet>();
-            bulletComponent.OnSetValues(weaponStats.TargetLayer, weaponStats.BulletSpeed, weaponStats.BulletLifeSpan, weaponStats.ShootDamage);
+            bulletComponent.OnSetValues(weaponStats);
             bulletsAmount--;
             hasShooted = true;
         }
@@ -49,13 +49,25 @@ public class BaseGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FireCooldown();
+        Reload();
+  
+    }
+    public virtual void SetBullets(int bulletsToSet, bool increaseBullets)
+    {
+        if (increaseBullets)
+            currentMaxBullets += bulletsToSet;
+        else currentMaxBullets = bulletsToSet;
+    }
+    private void FireCooldown()
+    {
         if (hasShooted)
         {
             weaponFireRate = weaponFireRate - Time.deltaTime;
             canShoot = false;
             if (!particleSystem.isPlaying)
             {
-            particleSystem.Stop();
+                particleSystem.Stop();
             }
             if (weaponFireRate <= 0)
             {
@@ -64,11 +76,14 @@ public class BaseGun : MonoBehaviour
                 hasShooted = false;
             }
         }
-        if( bulletsAmount <= 0)
+    }
+    private void Reload()
+    {
+        if (bulletsAmount <= 0)
         {
             canShoot = false;
             currentReloadTime = currentReloadTime - Time.deltaTime;
-            if(currentReloadTime <= 0)
+            if (currentReloadTime <= 0)
             {
                 canShoot = true;
                 bulletsAmount = currentMaxBullets;
@@ -76,10 +91,8 @@ public class BaseGun : MonoBehaviour
             }
         }
     }
-    public virtual void SetBullets(int bulletsToSet, bool increaseBullets)
+    public bool IsShooting()
     {
-        if (increaseBullets)
-            currentMaxBullets += bulletsToSet;
-        else currentMaxBullets = bulletsToSet;
+        return hasShooted;
     }
 }
