@@ -186,12 +186,12 @@ PrefabInstance:
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
@@ -216,12 +216,12 @@ PrefabInstance:
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
@@ -242,11 +242,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 894664796114648686, guid: 3212a64fc1095394a91eede1ce355a96,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3212a64fc1095394a91eede1ce355a96, type: 3}
@@ -290,7 +285,7 @@ PrefabInstance:
     - target: {fileID: 6841934948201905893, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6841934948201905893, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
