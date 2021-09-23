@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002e555d42cdec8408a7ced0e05b1680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStats: {fileID: 11400000, guid: a72c49680d1c2da49b8f5c8886b62ab5, type: 2}
+  weaponStats: {fileID: 0}
   firePoint: {fileID: 3294117715935910307}
   particleSystem: {fileID: 1893880997410356448, guid: 10de29eadf7903c48af144d289153d09,
     type: 3}

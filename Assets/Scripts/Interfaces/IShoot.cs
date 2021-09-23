@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IShoot
+public interface IShoot //TODO achicar la interfaz
 {
     Bullet BulletPrefab { get; }
     Transform FirePoint { get; }

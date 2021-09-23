@@ -13,20 +13,13 @@ public class EnemySpawner : MonoBehaviour
     private float currentEnemySpawnTimer;
     private void Start()
     {
-        targetToFollow = GameManager.instance.mainCharacter;
+        
         spawnRate = enemySpawnerStats.MaxSpawns;
     }
     private void Update()
     {
-        if(targetToFollow != null)
-        {
-            CheckDistance();
-            if (spawnRate > 0)
-            {
-                currentEnemySpawnTimer -= Time.deltaTime;
-            }
-        }
 
+        CheckTarget();
     }
     private void SpawnEnemy()
     {
@@ -35,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         {
             BaseEnemy enemyClone = enemyFactory.Create(instanceEnemies[Random.Range(0, instanceEnemies.Count)]);
             enemyClone.SetFollowTarget(targetToFollow);
-            enemyClone.transform.position = new Vector3(transform.position.x * Random.Range(0, 2), transform.position.y, transform.position.z * Random.Range(0, 2));
+            enemyClone.transform.position = new Vector3(transform.position.x + Random.Range(1f,10f), transform.position.y, transform.position.z + Random.Range(1f, 10f));
             spawnRate--;
             currentEnemySpawnTimer = enemySpawnerStats.SpawnRate;
 
@@ -47,6 +40,21 @@ public class EnemySpawner : MonoBehaviour
         if (distance <= enemySpawnerStats.DistanceToActivate)
         {
             SpawnEnemy();
+        }
+    }
+    private void CheckTarget()
+    {
+        if (targetToFollow == null)
+        {
+            targetToFollow = GameManager.instance.mainCharacter;
+        }
+        if (targetToFollow != null)
+        {
+            CheckDistance();
+            if (spawnRate > 0)
+            {
+                currentEnemySpawnTimer -= Time.deltaTime;
+            }
         }
     }
 }

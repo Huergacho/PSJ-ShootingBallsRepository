@@ -8,7 +8,7 @@ public class AmmoBox : BasePickUps
     public override void DoEffect(GameObject target)
     {
         base.DoEffect(target);
-        var targetGun = target.GetComponentInChildren<BaseGun>();
+        var targetGun = target.GetComponentInChildren<BaseWeapon>();
         targetGun.SetBullets(maxBulletsToGive, true);
         OnDestroy();
     }

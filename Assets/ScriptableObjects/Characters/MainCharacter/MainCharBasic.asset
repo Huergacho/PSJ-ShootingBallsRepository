@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MainCharBasic
   m_EditorClassIdentifier: 
   maxSpeed: 10
+  runSpeed: 15
   maxLife: 100

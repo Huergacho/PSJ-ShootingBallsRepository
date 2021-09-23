@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShootingActor : Actor
 {
-   [SerializeField] protected  BaseGun equipedGun;
+   [SerializeField] protected  BaseWeapon equipedGun;
     public virtual void Shoot()
     {
+
     }
 }

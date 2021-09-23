@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SimpleEnemyBasic
   m_EditorClassIdentifier: 
   maxSpeed: 5
-  maxLife: 100
+  maxLife: 30
