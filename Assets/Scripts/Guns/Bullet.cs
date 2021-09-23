@@ -31,20 +31,6 @@ public class Bullet : MonoBehaviour,IPooleable
         
 
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //        if ((target & 1 << other.gameObject.layer) != 0)
-    //        {
-    //      TakeDamageCommand damageCommand = new TakeDamageCommand(other.GetComponent<Actor>(), damage);
-    //        damageCommand.Do();
-    //            if (!isDestroyed)
-    //            {
-    //                DestroyActions();
-
-    //            }
-    //        }
-    //}
     private void OnCollisionEnter(Collision other)
     {
         if ((target & 1 << other.gameObject.layer) != 0)
@@ -77,9 +63,9 @@ public class Bullet : MonoBehaviour,IPooleable
     public void OnSetValues(GunStats owner)
     {
         target = owner.TargetLayer;
-        speed = owner.BulletSpeed;
-        lifeSpan = owner.BulletLifeSpan;
-        damage = owner.ShootDamage;
+        speed = owner.ProyectileSpeed;
+        lifeSpan = owner.ProyectileLifeTime;
+        damage = owner.ProyectileDamage;
         isDestroyed = false;
         //TODO Recibir un el scriptable object del arma que esta casteando la bala para no duplicar valores.
     }

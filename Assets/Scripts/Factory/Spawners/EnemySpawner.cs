@@ -18,19 +18,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
-        if(targetToFollow == null)
-        {
-            targetToFollow = GameManager.instance.mainCharacter;
-        }
-        if(targetToFollow != null)
-        {
-            CheckDistance();
-            if (spawnRate > 0)
-            {
-                currentEnemySpawnTimer -= Time.deltaTime;
-            }
-        }
 
+        CheckTarget();
     }
     private void SpawnEnemy()
     {
@@ -51,6 +40,21 @@ public class EnemySpawner : MonoBehaviour
         if (distance <= enemySpawnerStats.DistanceToActivate)
         {
             SpawnEnemy();
+        }
+    }
+    private void CheckTarget()
+    {
+        if (targetToFollow == null)
+        {
+            targetToFollow = GameManager.instance.mainCharacter;
+        }
+        if (targetToFollow != null)
+        {
+            CheckDistance();
+            if (spawnRate > 0)
+            {
+                currentEnemySpawnTimer -= Time.deltaTime;
+            }
         }
     }
 }

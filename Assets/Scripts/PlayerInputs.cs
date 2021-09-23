@@ -12,17 +12,24 @@ public class PlayerInputs : MonoBehaviour
     }
     private void Update()
     {
-        if(characterController == null)
-        characterController = GameManager.instance.mainCharacter;
+        AssingPlayer();
+        Shoot();
+        Movement(); 
+    }
+    private void Shoot()
+    {
         if (Input.GetKey(KeyCode.Mouse0))
         {
             characterController.Shoot();
         }
+    }
+    private void Movement()
+    {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
         Vector3 moveDirection = new Vector3(moveX, 0, moveZ);
-        Vector3 directionNormalized =  moveDirection.normalized;
-        if(moveDirection == Vector3.zero)
+        Vector3 directionNormalized = moveDirection.normalized;
+        if (moveDirection == Vector3.zero)
         {
             characterController.isMoving(false);
         }
@@ -33,7 +40,6 @@ public class PlayerInputs : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            //((Actor)characterController).CanSprint(true);
             characterController.CanSprint(true);
         }
         else
@@ -44,5 +50,10 @@ public class PlayerInputs : MonoBehaviour
         {
             characterController.MakeJump();
         }
+    }
+    private void AssingPlayer()
+    {
+        if (characterController == null)
+            characterController = GameManager.instance.mainCharacter;
     }
 }
