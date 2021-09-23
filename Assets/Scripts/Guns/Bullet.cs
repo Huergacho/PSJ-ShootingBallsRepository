@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour,IPooleable
     private float damage;
     private Bullet type = null;
     private float speed;
+    private float bulletCurrentSpeed;
     private float lifeSpan;
     private LayerMask target;
     private GenericPool genericPool;
@@ -18,7 +19,8 @@ public class Bullet : MonoBehaviour,IPooleable
     }
     private void Update()
     {
-            transform.position += transform.forward * speed * Time.deltaTime;
+            bulletCurrentSpeed += Time.deltaTime;
+            transform.position += transform.forward * bulletCurrentSpeed * Time.deltaTime;
             lifeSpan = lifeSpan - Time.deltaTime;
             if (lifeSpan <= 0)
             {
@@ -64,6 +66,7 @@ public class Bullet : MonoBehaviour,IPooleable
     {
         target = owner.TargetLayer;
         speed = owner.ProyectileSpeed;
+        bulletCurrentSpeed = speed;
         lifeSpan = owner.ProyectileLifeTime;
         damage = owner.ProyectileDamage;
         isDestroyed = false;

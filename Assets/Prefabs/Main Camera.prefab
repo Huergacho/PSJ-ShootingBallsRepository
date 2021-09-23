@@ -42,7 +42,7 @@ Camera:
   m_GameObject: {fileID: 894664796114648684}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -57,7 +57,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 40
   field of view: 60
   orthographic: 1
   orthographic size: 6.15
@@ -97,4 +97,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  target_Offset: {x: 0, y: 0, z: 1.23}
+  target_Offset: {x: 0, y: 15, z: -12}

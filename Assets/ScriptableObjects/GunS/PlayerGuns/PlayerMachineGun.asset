@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8049780aa38c8ee4cb307198e2465ba8, type: 3}
   m_Name: PlayerMachineGun
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: -8951538781084381578, guid: 7a7a5151c5459ce4195e29860b18f84e,
+  proyectilePrefab: {fileID: -8951538781084381578, guid: 7a7a5151c5459ce4195e29860b18f84e,
     type: 3}
   reloadCooldown: 3
-  maxBullets: 20
-  fireCooldown: 0.3
-  bulletLifeSpan: 1.5
-  bulletSpeed: 20
-  shootDamage: 10
+  maxProyectiles: 20
+  attackCooldown: 0.2
+  proyectileLifeTime: 3
+  proyectileSpeed: 20
+  proyectileDamage: 15
   targetLayer:
     serializedVersion: 2
     m_Bits: 64
