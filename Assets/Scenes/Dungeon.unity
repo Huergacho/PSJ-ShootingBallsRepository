@@ -326,10 +326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1140312495, guid: d183e9fc6800e8f44b8d8cf86def40d4, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6841934948201406233, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
       propertyPath: m_Name
@@ -340,10 +336,30 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502210, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: jumpForceImpulse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502213, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6841934948201502213, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
       propertyPath: m_Constraints
       value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502213, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502213, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6841934948201502214, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
@@ -2446,6 +2462,11 @@ PrefabInstance:
       propertyPath: startRoom
       value: 
       objectReference: {fileID: 1411289188}
+    - target: {fileID: 7932719567897934540, guid: 49590915ed53f6348882f369af7e242c,
+        type: 3}
+      propertyPath: timeToStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7932719567897934540, guid: 49590915ed53f6348882f369af7e242c,
         type: 3}
       propertyPath: rooms.Array.size

@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 public class PlayerController : ShootingActor
 {
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpForceImpulse;
     [SerializeField] private LayerMask groundLayer;
     public static event Action<int> ammoQuantity;
     private bool canMove;
@@ -51,23 +51,23 @@ public class PlayerController : ShootingActor
     {
         if (!isRunning)
         {
-            rb.velocity = direction * speed * Time.deltaTime;
+            rb.velocity = new Vector3(direction.x * speed, rb.velocity.y,direction.z * speed);
         }
         else
         {
-            rb.velocity = direction * actorStats.RunSpeed * Time.deltaTime;
+            rb.velocity = new Vector3(direction.x * actorStats.RunSpeed, rb.velocity.y, direction.z * actorStats.RunSpeed) ;
         }
         if(direction == Vector3.zero)
         {
-            rb.velocity = Vector3.zero;
+            rb.velocity = new Vector3(0,rb.velocity.y,0);
         }
     }
     public void MakeJump()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit,  1f ,groundLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit,  2f ,groundLayer))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Force);
+            rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
     }
     public override void Shoot()

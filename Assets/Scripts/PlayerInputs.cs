@@ -33,12 +33,12 @@ public class PlayerInputs : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            // (Actor)characterController.OnSprint(true);
-            characterController.OnSprint(true);
+            //((Actor)characterController).CanSprint(true);
+            characterController.CanSprint(true);
         }
         else
         {
-            characterController.OnSprint(false);
+            characterController.CanSprint(false);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

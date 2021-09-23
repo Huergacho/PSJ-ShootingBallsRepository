@@ -5,7 +5,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour, IDamagable, IMovable
 {
     [SerializeField] protected AnimationManager animationManager;
-    [SerializeField] protected ActorStats actorStats;
+    [SerializeField] protected ActorStats actorStats; //TODO, Dividir el actor stats entre vida y movimiento
     protected float speed;
     protected float currentLife;
     protected Rigidbody rb;
@@ -62,7 +62,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     {
 
     }
-    public void OnSprint(bool canRun)
+    public void CanSprint(bool canRun)
     {
         isRunning = canRun;
     }
