@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &20092048 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7450125274833965866, guid: f1d01979984a76a4c8e0234d21a42f4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 7450125274849593274}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &20092049 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7450125274833965867, guid: f1d01979984a76a4c8e0234d21a42f4e,
@@ -471,7 +465,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -687,6 +681,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c45f2281b245842b6423c1527b9291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1071034562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6841934948201905893, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6841934948503844481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1587562095
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -908,7 +908,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799293312}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 27ca342dc70f4f84c8046f36d5aaa41c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -1137,7 +1137,22 @@ PrefabInstance:
         type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 20092048}
+      objectReference: {fileID: 1071034562}
+    - target: {fileID: 894664796114648680, guid: 3212a64fc1095394a91eede1ce355a96,
+        type: 3}
+      propertyPath: target_Offset.x
+      value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 894664796114648680, guid: 3212a64fc1095394a91eede1ce355a96,
+        type: 3}
+      propertyPath: target_Offset.y
+      value: 7.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 894664796114648680, guid: 3212a64fc1095394a91eede1ce355a96,
+        type: 3}
+      propertyPath: target_Offset.z
+      value: -3.13
+      objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_RootOrder
@@ -1493,6 +1508,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharacterSoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502210, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: jumpForceImpulse
+      value: 7.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201502214, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6841934948201905893, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1729,6 +1754,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320619903084425437, guid: 0b7d752d60a800c4cb0687ae3210adfa,
+        type: 3}
+      propertyPath: canStartGame
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8320619903084425438, guid: 0b7d752d60a800c4cb0687ae3210adfa,
         type: 3}

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public PlayerController mainCharacter;
     public static GameManager instance = null;
-    private bool canStartGame = false;
+    [SerializeField]private bool canStartGame = false;
     public bool CanStartGame => canStartGame;
     //public SpawnWhenEmpty fullLevelIndicator;
     private void Awake()

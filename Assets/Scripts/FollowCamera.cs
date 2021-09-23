@@ -14,8 +14,8 @@ public class FollowCamera : MonoBehaviour
     {
         if(target == null)
         {
-            target = GameManager.instance.mainCharacter.transform;
             target_Offset = transform.position - target.position;
+            target = GameManager.instance.mainCharacter.transform;
         }
         if (target)
         {
