@@ -135,6 +135,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279a69af1e83d6449bcb234b33944e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &172615700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8093475500840603113, guid: 33a3f85846949c947b202e81f4551936,
+    type: 3}
+  m_PrefabInstance: {fileID: 8093475500094349957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &285757399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1117,6 +1123,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SimpleSoldier
       objectReference: {fileID: 0}
+    - target: {fileID: 13596303367537512, guid: b5ff04e28198fff4d99ddccd89777352,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13596303367537525, guid: b5ff04e28198fff4d99ddccd89777352,
         type: 3}
       propertyPath: followTarget
@@ -1250,6 +1261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FlameTrowerSoldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 646225401059631225, guid: fe5698dd9f46823409f697c4cfd40220,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe5698dd9f46823409f697c4cfd40220, type: 3}
@@ -1630,10 +1646,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6841934947086723409, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: weaponStats
+      value: 
+      objectReference: {fileID: 11400000, guid: e39ce1ddc483c5f46bc26e86a515ad49,
+        type: 2}
+    - target: {fileID: 6841934947086723409, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: proyectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c8c28d5036947d48ade03cd88bc27e2,
+        type: 2}
     - target: {fileID: 6841934948201406233, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
       propertyPath: m_Name
       value: MainCharacterSoldier
+      objectReference: {fileID: 0}
+    - target: {fileID: 6841934948201406233, guid: d183e9fc6800e8f44b8d8cf86def40d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6841934948201502210, guid: d183e9fc6800e8f44b8d8cf86def40d4,
         type: 3}
@@ -1800,14 +1833,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8093475499919947320, guid: 33a3f85846949c947b202e81f4551936,
         type: 3}
-      propertyPath: poolsList.Array.data[0].poolSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8093475499919947320, guid: 33a3f85846949c947b202e81f4551936,
-        type: 3}
-      propertyPath: poolsList.Array.data[1].poolSize
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: poolsList.Array.data[2].objectFather
+      value: 
+      objectReference: {fileID: 172615700}
     - target: {fileID: 8093475500232795442, guid: 33a3f85846949c947b202e81f4551936,
         type: 3}
       propertyPath: m_RootOrder

@@ -2,42 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour,IPooleable
+public class Bullet : MonoBehaviour, IPooleable
 {
-    private float damage;
-    private Bullet type = null;
-    private float speed;
+    [SerializeField]private ProyectileStats proyectileStats;
+    private float currentDamage;
     private float bulletCurrentSpeed;
-    private float lifeSpan;
-    private LayerMask target;
+    private float currentLifeTime;
     private GenericPool genericPool;
     private bool isDestroyed = false;
+    private LayerMask target;
 
     private void Start()
     {
         OnObjectSpawn();
+        
     }
     private void Update()
     {
-            bulletCurrentSpeed += Time.deltaTime;
-            transform.position += transform.forward * bulletCurrentSpeed * Time.deltaTime;
-            lifeSpan = lifeSpan - Time.deltaTime;
-            if (lifeSpan <= 0)
+        Move();
+    }
+    private void Move()
+    {
+        bulletCurrentSpeed += Time.deltaTime;
+        transform.position += transform.forward * bulletCurrentSpeed * Time.deltaTime;
+        currentLifeTime = currentLifeTime - Time.deltaTime;
+        if (currentLifeTime <= 0)
+        {
+            if (!isDestroyed)
             {
-                if (!isDestroyed)
-                {
-                    DestroyActions();
+                DestroyActions();
 
-                }
             }
-        
-
+        }
     }
     private void OnCollisionEnter(Collision other)
     {
         if ((target & 1 << other.gameObject.layer) != 0)
         {
-            TakeDamageCommand damageCommand = new TakeDamageCommand(other.gameObject.GetComponent<Actor>(), damage);
+            TakeDamageCommand damageCommand = new TakeDamageCommand(other.gameObject.GetComponent<Actor>(),proyectileStats.ProyectileDamage);
             damageCommand.Do();
             if (!isDestroyed)
             {
@@ -62,19 +64,18 @@ public class Bullet : MonoBehaviour,IPooleable
         }
 
     }
-    public void OnSetValues(GunStats owner)
+    public void OnSetValues(RangeWeapon owner)
     {
-        target = owner.TargetLayer;
-        speed = owner.ProyectileSpeed;
-        bulletCurrentSpeed = speed;
-        lifeSpan = owner.ProyectileLifeTime;
-        damage = owner.ProyectileDamage;
+        target = ((BaseWeapon)owner).WeaponStats.TargetLayer;
+        proyectileStats = owner.PoryectileStats;
+
         isDestroyed = false;
-        //TODO Recibir un el scriptable object del arma que esta casteando la bala para no duplicar valores.
     }
 
     public void OnObjectSpawn()
     {
         genericPool = GenericPool.Instance;
+        currentLifeTime = proyectileStats.ProyectileLifeTime;
+        bulletCurrentSpeed = proyectileStats.ProyectileSpeed;
     }
 }

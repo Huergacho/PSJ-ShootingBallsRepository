@@ -252,16 +252,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1206691539}
-    - target: {fileID: 894664796114648680, guid: 3212a64fc1095394a91eede1ce355a96,
-        type: 3}
-      propertyPath: target_Offset.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 894664796114648680, guid: 3212a64fc1095394a91eede1ce355a96,
-        type: 3}
-      propertyPath: target_Offset.z
-      value: -12
-      objectReference: {fileID: 0}
     - target: {fileID: 894664796114648681, guid: 3212a64fc1095394a91eede1ce355a96,
         type: 3}
       propertyPath: m_RootOrder
@@ -321,11 +311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 894664796114648686, guid: 3212a64fc1095394a91eede1ce355a96,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3212a64fc1095394a91eede1ce355a96, type: 3}

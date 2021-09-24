@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class RangeWeapon : BaseWeapon
 {
+    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ProyectileStats proyectileStats;
+    public ProyectileStats PoryectileStats => proyectileStats;
+    public int BulletsAmount => bulletsAmount;
+    protected int bulletsAmount;
+    protected int currentMaxBullets;
+
+
+    public override void Start()
+    {
+        base.Start();
+        genericPool = GenericPool.Instance;
+        currentMaxBullets = weaponStats.MaxProyectiles;
+        bulletsAmount = weaponStats.MaxProyectiles;
+    }
     public override void Update()
     {
         base.Update();
@@ -33,4 +48,18 @@ public class RangeWeapon : BaseWeapon
     {
         return hasAttacked;
     }
+    public virtual void Shoot()
+    {
+        particleSystem.Play();
+        if (canMakeAttack)
+        {
+
+            var bulletObject = genericPool.SpawnFromPool(proyectileStats.ProyectileTag, firePoint.position, firePoint.rotation);
+            var bulletComponent = bulletObject.GetComponent<Bullet>();
+            bulletComponent.OnSetValues(this);
+            bulletsAmount--;
+            hasAttacked = true;
+        }
+    }
+
 }

@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8049780aa38c8ee4cb307198e2465ba8, type: 3}
-  m_Name: MachineGunsEnemy
+  m_Script: {fileID: 11500000, guid: a0c7c9e6c83638f46854664bf262650a, type: 3}
+  m_Name: BaseWeaponStats
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: -8951538781084381578, guid: 7a7a5151c5459ce4195e29860b18f84e,
-    type: 3}
-  reloadCooldown: 3
-  maxBullets: 20
-  fireCooldown: 0.3
-  bulletLifeSpan: 1.5
-  bulletSpeed: 20
-  shootDamage: 10
+  attackDamage: 0
+  attackCooldown: 0
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
+  proyectilePrefab: {fileID: 0}
+  reloadCooldown: 0
+  maxProyectiles: 0
+  bulletToGetFromPool: machineGunBullets

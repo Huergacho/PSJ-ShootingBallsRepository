@@ -76,14 +76,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolsList:
-  - tag: bullet
-    poolSize: 50
-    objectToPool: {fileID: 4411351866478423757, guid: 7a7a5151c5459ce4195e29860b18f84e,
+  - tag: pistol
+    poolSize: 10
+    objectToPool: {fileID: 6522876280443174973, guid: c2b306a81c2ca9847b4f540729de2649,
       type: 3}
     objectFather: {fileID: 8093475500840603113}
   - tag: particles
-    poolSize: 50
+    poolSize: 5
     objectToPool: {fileID: 1706673890304663333, guid: 10de29eadf7903c48af144d289153d09,
+      type: 3}
+    objectFather: {fileID: 8093475499850668514}
+  - tag: machinegun
+    poolSize: 10
+    objectToPool: {fileID: 7694027961576938404, guid: e4ecf2bcbb581e44ab7b856a918359b2,
       type: 3}
     objectFather: {fileID: 8093475499850668514}
 --- !u!1 &8093475500232795443

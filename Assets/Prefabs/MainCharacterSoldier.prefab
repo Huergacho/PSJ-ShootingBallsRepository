@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002e555d42cdec8408a7ced0e05b1680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStats: {fileID: 11400000, guid: bd1d929dff4c156448d9f9f0fa226303, type: 2}
+  weaponStats: {fileID: 11400000, guid: 281d13e893e74c64696fc87a78d42db7, type: 2}
   firePoint: {fileID: 6841934946803171207}
   particleSystem: {fileID: 1893880997410356448, guid: 10de29eadf7903c48af144d289153d09,
     type: 3}
