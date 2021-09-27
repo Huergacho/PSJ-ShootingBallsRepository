@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseEnemy : ShootingActor
+public abstract class BaseEnemy : Actor
 {
     [SerializeField] private EnemyStats enemyStats;
     protected bool hasDetectedEnemy;
     protected float alertTime;
     [SerializeField]protected Actor followTarget;
     protected float distance;
+
     // Start is called before the first frame update
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
     }
@@ -21,7 +22,7 @@ public abstract class BaseEnemy : ShootingActor
         if (hasDetectedEnemy)
         {
             alertTime = alertTime + Time.deltaTime;
-            equipedGun?.Shoot();
+            Attack();
             if (alertTime > enemyStats.AlertTimeDuration)
             {
                 hasDetectedEnemy = false;

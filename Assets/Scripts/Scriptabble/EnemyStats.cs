@@ -8,4 +8,6 @@ public class EnemyStats : ScriptableObject
     [SerializeField] private float detectionDistance;
     public float AlertTimeDuration => alertTimeDuration;
     [SerializeField] private float alertTimeDuration;
+
+
 }

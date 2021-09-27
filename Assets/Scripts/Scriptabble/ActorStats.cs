@@ -11,4 +11,5 @@ public class ActorStats : ScriptableObject
     [SerializeField]private float runSpeed; 
     public int MaxLife => maxLife;
     [SerializeField] private int maxLife;
+
 }

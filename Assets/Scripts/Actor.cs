@@ -5,6 +5,8 @@ using UnityEngine;
 public class Actor : MonoBehaviour, IDamagable, IMovable
 {
     [SerializeField] protected AnimationManager animationManager;
+    [SerializeField] protected RangeWeapon rangedWeapon;
+    [SerializeField] protected MeleeWeapon meeleWeapon;
     [SerializeField] protected ActorStats actorStats; //TODO, Dividir el actor stats entre vida y movimiento
     protected float speed;
     protected float currentLife;
@@ -14,7 +16,10 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     public int MaxLife => actorStats.MaxLife;
     protected Animator animator;
     protected bool isRunning;
-    public virtual void Start()
+    public bool IsRanged => isRanged;
+    [SerializeField] protected bool isRanged;
+
+    protected virtual void Start()
     {
         
         animator = GetComponent<Animator>();
@@ -65,5 +70,20 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     public void CanSprint(bool canRun)
     {
         isRunning = canRun;
+    }
+    public virtual void Attack()
+    {
+        if (isRanged)
+        {
+            rangedWeapon.Shoot();
+        }
+        else
+        {
+            meeleWeapon.MeleeAttack();
+        }
+    }
+    public virtual void ChangeWeaponState(bool isUsingRangedWeapons)
+    {
+        isRanged = isUsingRangedWeapons;
     }
 }

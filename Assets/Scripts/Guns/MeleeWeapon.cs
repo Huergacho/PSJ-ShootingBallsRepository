@@ -5,12 +5,13 @@ using UnityEngine;
 public class MeleeWeapon : BaseWeapon
 {
     [SerializeField] private float attackRange;
-    void MeleeAttack()
+    public void MeleeAttack()
     {
         Collider[] hitInfo = Physics.OverlapSphere(firePoint.position, attackRange, weaponStats.TargetLayer);
         foreach (var item in hitInfo)
         {
             item.GetComponent<Actor>().TakeDamage(weaponStats.AttackDamage);
+            print($"le hice{weaponStats.AttackDamage} daño a " + item.name);
         }
     }
 }

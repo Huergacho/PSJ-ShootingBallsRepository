@@ -16,13 +16,14 @@ public class RangeWeapon : BaseWeapon
     {
         base.Start();
         genericPool = GenericPool.Instance;
-        currentMaxBullets = weaponStats.MaxProyectiles;
-        bulletsAmount = weaponStats.MaxProyectiles;
+        currentMaxBullets = WeaponStats.MaxProyectiles;
+        bulletsAmount = currentMaxBullets;
     }
     public override void Update()
     {
         base.Update();
         Reload();
+
     }
     private void Reload()
     {

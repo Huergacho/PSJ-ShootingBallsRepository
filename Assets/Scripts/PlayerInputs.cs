@@ -9,18 +9,18 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField]private PlayerController characterController;
     private void Start()
     {
+        AssingPlayer();
     }
     private void Update()
     {
-        AssingPlayer();
-        Shoot();
+        Attack();
         Movement(); 
     }
-    private void Shoot()
+    private void Attack()
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            characterController.Shoot();
+            characterController.Attack();
         }
     }
     private void Movement()

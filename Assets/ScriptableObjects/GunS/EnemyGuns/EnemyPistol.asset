@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7df15cf9210b4b43b0cd10f16292e1d, type: 3}
-  m_Name: PistolBullet
+  m_Script: {fileID: 11500000, guid: a0c7c9e6c83638f46854664bf262650a, type: 3}
+  m_Name: EnemyPistol
   m_EditorClassIdentifier: 
-  proyectileLifeTime: 5
-  proyectileSpeed: 15
-  proyectileTag: pistol
-  proyectileDamage: 15
+  attackDamage: 0
+  attackCooldown: 0.2
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  reloadCooldown: 1
+  maxProyectiles: 10

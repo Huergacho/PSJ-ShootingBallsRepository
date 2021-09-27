@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class PlayerController : ShootingActor
+[RequireComponent(typeof (PlayerInputs))]
+public class PlayerController : Actor
 {
     [SerializeField] private float jumpForceImpulse;
     [SerializeField] private LayerMask groundLayer;
@@ -13,7 +14,7 @@ public class PlayerController : ShootingActor
     {
         
     }
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         GameManager.instance.mainCharacter = this;
@@ -24,6 +25,7 @@ public class PlayerController : ShootingActor
 
         base.Update();
         MoveToMousePosition();
+        if(isRanged)
         ShowActualAmmo();
 
         if (canMove == true)
@@ -70,14 +72,9 @@ public class PlayerController : ShootingActor
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
     }
-    public override void Shoot()
-    {
-        equipedGun?.Shoot();
-       // animationManager.ChangeState(AnimationManager.State.shoot);
-    }
     public void ShowActualAmmo()
     {
-        ammoQuantity?.Invoke(equipedGun.BulletsAmount);
+        ammoQuantity?.Invoke(rangedWeapon.BulletsAmount);
 
     }
     public void isMoving(bool isMoving)
