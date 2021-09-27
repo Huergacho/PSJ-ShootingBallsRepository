@@ -95,10 +95,12 @@ public class PlayerController : Actor
     public override void Attack()
     {
         base.Attack();
+        print("Reproduce El ataque");
 
     }
     public void MakeAttackAnimation()
     {
         animationManager.ChangeState(AnimationManager.State.attack);
+
     }
 }

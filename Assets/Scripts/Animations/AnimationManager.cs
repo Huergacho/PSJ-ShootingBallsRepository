@@ -11,6 +11,7 @@ public class AnimationManager : MonoBehaviour
     }
     private  State currentState;
     private Animator animator;
+    public bool attackState;
     private void Start()
     {
        animator = gameObject.GetComponent<Animator>();
@@ -34,6 +35,7 @@ public class AnimationManager : MonoBehaviour
                 break;
             case State.attack:
                 animator.SetTrigger("Attacking");
+                print("Hace la Animacion de Ataque");
                 break;
 
         }
