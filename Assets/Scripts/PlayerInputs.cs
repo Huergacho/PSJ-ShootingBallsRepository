@@ -20,7 +20,7 @@ public class PlayerInputs : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            characterController.Attack();
+            characterController.MakeAttackAnimation();
         }
     }
     private void Movement()

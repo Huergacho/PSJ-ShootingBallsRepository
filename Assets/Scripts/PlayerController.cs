@@ -30,7 +30,14 @@ public class PlayerController : Actor
 
         if (canMove == true)
         {
-            animationManager?.ChangeState(AnimationManager.State.run);
+            if (isRunning)
+            {
+                animationManager.ChangeState(AnimationManager.State.run);
+            }
+            else
+            {
+                animationManager.ChangeState(AnimationManager.State.walk);
+            }
         }
         else
         {
@@ -84,5 +91,14 @@ public class PlayerController : Actor
     private void Spawn(Vector3 worldPos)
     {
         transform.position = worldPos;
+    }
+    public override void Attack()
+    {
+        base.Attack();
+
+    }
+    public void MakeAttackAnimation()
+    {
+        animationManager.ChangeState(AnimationManager.State.attack);
     }
 }

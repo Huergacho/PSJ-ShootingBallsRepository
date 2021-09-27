@@ -31,7 +31,6 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
 
     public virtual void Move()
     {
-
     }
 
     public virtual void TakeDamage(float damage)
