@@ -34,8 +34,7 @@ public class AnimationManager : MonoBehaviour
                 animator.SetFloat("Speed", 1);
                 break;
             case State.attack:
-                animator.SetTrigger("Attacking");
-                print("Hace la Animacion de Ataque");
+                animator.SetTrigger("OnAttack");
                 break;
 
         }

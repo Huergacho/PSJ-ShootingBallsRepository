@@ -19,4 +19,4 @@ MonoBehaviour:
     m_Bits: 64
   reloadCooldown: 1
   maxProyectiles: 10
-  proyectileStats: {fileID: 11400000, guid: c2d30b88484809647b1534238870f41f, type: 2}
+  isRanged: 1

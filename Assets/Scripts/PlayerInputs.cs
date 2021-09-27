@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof (PlayerController))]
 public class PlayerInputs : MonoBehaviour
 {
     private Actor character;
@@ -18,7 +16,7 @@ public class PlayerInputs : MonoBehaviour
     }
     private void Attack()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             characterController.MakeAttackAnimation();
         }

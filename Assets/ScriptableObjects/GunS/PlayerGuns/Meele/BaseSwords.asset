@@ -19,3 +19,5 @@ MonoBehaviour:
     m_Bits: 64
   reloadCooldown: 0
   maxProyectiles: 0
+  isRanged: 0
+  attackRange: 1

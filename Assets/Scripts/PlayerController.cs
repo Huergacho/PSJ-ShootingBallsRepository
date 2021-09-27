@@ -25,9 +25,9 @@ public class PlayerController : Actor
 
         base.Update();
         MoveToMousePosition();
-        if(isRanged)
+        if(equipedWeapon.WeaponStats.IsRanged)
         ShowActualAmmo();
-
+        Debug.DrawRay(transform.position, Vector3.down * 5f, Color.red);
         if (canMove == true)
         {
             if (isRunning)
@@ -74,10 +74,13 @@ public class PlayerController : Actor
     public void MakeJump()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit,  2f ,groundLayer))
+
+        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  5f ,groundLayer))
         {
+        print("Salto");
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
+        print("No Salto");
     }
     public void ShowActualAmmo()
     {
@@ -95,12 +98,22 @@ public class PlayerController : Actor
     public override void Attack()
     {
         base.Attack();
-        print("Reproduce El ataque");
+        
 
     }
     public void MakeAttackAnimation()
     {
-        animationManager.ChangeState(AnimationManager.State.attack);
+        if(animationManager != null)
+        {
+            animationManager.ChangeState(AnimationManager.State.attack);
+            print("Si Hay Animator");
+
+
+        }
+        else
+        {
+            print("No Hay Animator");
+        }
 
     }
 }

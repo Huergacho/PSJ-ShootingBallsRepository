@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MeleeWeapon : BaseWeapon
 {
-    [SerializeField] private float attackRange;
     public void MeleeAttack()
     {
-        Collider[] hitInfo = Physics.OverlapSphere(firePoint.position, attackRange, weaponStats.TargetLayer);
+        Collider[] hitInfo = Physics.OverlapSphere(firePoint.position, weaponStats.AttackRange, weaponStats.TargetLayer);
         foreach (var item in hitInfo)
         {
             item.GetComponent<Actor>().TakeDamage(weaponStats.AttackDamage);

@@ -10,6 +10,7 @@ public class RangeWeapon : BaseWeapon
     public int BulletsAmount => bulletsAmount;
     protected int bulletsAmount;
     protected int currentMaxBullets;
+   
 
 
     public override void Start()

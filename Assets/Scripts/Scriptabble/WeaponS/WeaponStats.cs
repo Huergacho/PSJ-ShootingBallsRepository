@@ -16,5 +16,9 @@ public class WeaponStats : ScriptableObject
     [SerializeField] protected float reloadCooldown;
     public int MaxProyectiles => maxProyectiles;
     [SerializeField] protected int maxProyectiles;
+    public bool IsRanged => isRanged;
+   [SerializeField]private bool isRanged;
+    public float AttackRange => attackRange;
+    [SerializeField] private float attackRange;
 
 }
