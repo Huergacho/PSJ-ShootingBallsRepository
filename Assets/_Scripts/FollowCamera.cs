@@ -12,7 +12,7 @@ public class FollowCamera : MonoBehaviour
     }
     void Update()
     {
-        if(target == null)
+        if (target == null)
         {
             target_Offset = transform.position - target.position;
             target = GameManager.instance.mainCharacter.transform;
@@ -20,6 +20,7 @@ public class FollowCamera : MonoBehaviour
         if (target)
         {
             transform.position = Vector3.Lerp(transform.position, target.position + target_Offset, 0.1f);
-        }
+    
+        } 
     }
 }

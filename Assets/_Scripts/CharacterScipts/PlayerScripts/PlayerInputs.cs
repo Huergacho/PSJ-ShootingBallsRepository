@@ -16,7 +16,7 @@ public class PlayerInputs : MonoBehaviour
     }
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             characterController.MakeAttackAnimation();
         }

@@ -10,6 +10,7 @@ public class PlayerController : Actor
     public static event Action<int> ammoQuantity;
     private bool canMove;
     private bool canCheck;
+    private Vector3 target;
     private void Awake()
     {
         
@@ -49,11 +50,11 @@ public class PlayerController : Actor
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            var target = hitInfo.point;
+            target = hitInfo.point;
             target.y = transform.position.y;
             var distance = Vector3.Distance(transform.position, hitInfo.point);
-            if(distance >= 1f)
-            transform.LookAt(target);
+            if (distance >= 1f)
+                transform.LookAt(target);
         }
     }
     public void Move(Vector3 direction)
