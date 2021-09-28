@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3352550}
   - component: {fileID: 2352550}
   - component: {fileID: 11152550}
-  m_Layer: 0
+  - component: {fileID: -2294718637206979763}
+  m_Layer: 6
   m_Name: Pf_Trap_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +99,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-2294718637206979763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec9a8d9a47fd904f8b24b0ac82f9cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapStats: {fileID: 11400000, guid: b3b2bfa4c4d220740895f53d11155a56, type: 2}
+  isActive: 0
 --- !u!1 &175764
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +124,7 @@ GameObject:
   - component: {fileID: 475764}
   - component: {fileID: 19875764}
   - component: {fileID: 19975764}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eff_Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
