@@ -28,7 +28,7 @@ public class PlayerController : Actor
         MoveToMousePosition();
         if(equipedWeapon.WeaponStats.IsRanged)
         ShowActualAmmo();
-        Debug.DrawRay(transform.position, Vector3.down * 5f, Color.red);
+        Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red);
         if (canMove == true)
         {
             if (isRunning)
@@ -76,7 +76,7 @@ public class PlayerController : Actor
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  5f ,groundLayer))
+        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  3f ,groundLayer))
         {
         print("Salto");
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
