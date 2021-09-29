@@ -9733,6 +9733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000010690109084}
   - component: {fileID: 668609658}
+  - component: {fileID: 3629836718570185455}
   m_Layer: 0
   m_Name: Bottle_Health
   m_TagString: Untagged
@@ -9772,3 +9773,16 @@ MonoBehaviour:
   BaseConsumable: {fileID: 11400000, guid: a4f444728a48498418e61722725860a0, type: 2}
   particles: {fileID: 198000014249637824}
   healAmount: 15
+--- !u!65 &3629836718570185455
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012970591572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.74502796, y: 0.6354382, z: 1}
+  m_Center: {x: -0.055293947, y: 1.0957805, z: 0}
