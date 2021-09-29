@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07f4d40f935df840869c2ab2f7723c8, type: 3}
   m_Name: CaveEnemySpawner
   m_EditorClassIdentifier: 
-  spawnRate: 5
+  spawnRate: 4
   maxSpawns: 5
-  distanceToActivate: 10
+  distanceToActivate: 20

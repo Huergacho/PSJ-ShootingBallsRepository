@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionDistance: 15
   alertTimeDuration: 5
-  attackDistance: 5
+  attackDistance: 7
   followTargetLayerMask:
     serializedVersion: 2
     m_Bits: 8
