@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         {
             BaseEnemy enemyClone = enemyFactory.Create(instanceEnemies[Random.Range(0, instanceEnemies.Count)]);
             enemyClone.SetFollowTarget(targetToFollow);
-            enemyClone.transform.position = new Vector3(transform.position.x + Random.Range(1f,10f), transform.position.y, transform.position.z + Random.Range(1f, 10f));
+            enemyClone.transform.position = new Vector3(transform.position.x + Random.Range(1f,enemySpawnerStats.MaxDistanceToSpawn.x), transform.position.y, transform.position.z + Random.Range(1f, enemySpawnerStats.MaxDistanceToSpawn.z));
             spawnRate--;
             currentEnemySpawnTimer = enemySpawnerStats.SpawnRate;
 

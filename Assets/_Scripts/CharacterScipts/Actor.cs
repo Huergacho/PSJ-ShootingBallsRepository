@@ -7,7 +7,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     [SerializeField] public AnimationManager animationManager;
     [SerializeField] protected RangeWeapon rangedWeapon;
     [SerializeField] protected MeleeWeapon meeleWeapon;
-    [SerializeField] protected ActorStats actorStats; //TODO, Dividir el actor stats entre vida y movimiento
+    [SerializeField] protected ActorStats actorStats;
     protected float speed;
     protected float currentLife;
     protected Rigidbody rb;
