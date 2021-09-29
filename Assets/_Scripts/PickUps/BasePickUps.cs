@@ -21,7 +21,6 @@ public class BasePickUps : MonoBehaviour, IPickable
     }
     protected void OnTriggerEnter(Collider other)
     {
-        print("Colisiono");
         if ((BaseConsumable.EntititesAffected & 1 << other.gameObject.layer) != 0)
         {
             DoEffect(other.gameObject);

@@ -7,7 +7,7 @@ public class PlayerController : Actor
 {
     [SerializeField] private float jumpForceImpulse;
     [SerializeField] private LayerMask groundLayer;
-    public static event Action<int> ammoQuantity;
+    public static event Action<float> lifeUpdate;
     private bool canMove;
     private bool canCheck;
     private Vector3 target;
@@ -28,8 +28,7 @@ public class PlayerController : Actor
 
         base.Update();
         MoveToMousePosition();
-        if(equipedWeapon.WeaponStats.IsRanged)
-        ShowActualAmmo();
+        ShowActualLife();
         Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red);
         if (canMove == true)
         {
@@ -46,6 +45,7 @@ public class PlayerController : Actor
         {
             animationManager?.ChangeState(AnimationManager.State.idle);
         }
+        
     }
     void MoveToMousePosition()
     {
@@ -83,10 +83,9 @@ public class PlayerController : Actor
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
     }
-    public void ShowActualAmmo()
+    public void ShowActualLife()
     {
-        ammoQuantity?.Invoke(rangedWeapon.BulletsAmount);
-
+        lifeUpdate?.Invoke(currentLife);
     }
     public void isMoving(bool isMoving)
     {
