@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeeleEnemy : BaseEnemy
+public class SimpleEnemy : BaseEnemy
 {
     protected override void Start()
     {

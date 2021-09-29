@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour, IPooleable
             }
         }
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if ((target & 1 << other.gameObject.layer) != 0)
         {
@@ -43,6 +43,7 @@ public class Bullet : MonoBehaviour, IPooleable
             damageCommand.Do();
             if (!isDestroyed)
             {
+        print(other.name + "Entro en colision");
                 DestroyActions();
 
             }
@@ -53,7 +54,7 @@ public class Bullet : MonoBehaviour, IPooleable
         isDestroyed = true;
         if (isDestroyed)
         {
-            var particles = genericPool.SpawnFromPool("particles", transform.position, transform.rotation);
+            var particles = genericPool.SpawnFromPool(proyectileStats.ProyectileParticlesTag, transform.position, transform.rotation);
             particles.GetComponent<ParticleSystem>().Play();
             if (!particles.GetComponent<ParticleSystem>().isEmitting)
             {

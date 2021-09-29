@@ -11,6 +11,8 @@ public class ProyectileStats : ScriptableObject
     [SerializeField] protected float proyectileSpeed;
     public string ProyectileTag => proyectileTag;
     [SerializeField] private string proyectileTag;
+    public string ProyectileParticlesTag => proyectileParticlesTag;
+    [SerializeField] private string proyectileParticlesTag;
     public float ProyectileDamage => proyectileDamage;
     [SerializeField] private float proyectileDamage;
 

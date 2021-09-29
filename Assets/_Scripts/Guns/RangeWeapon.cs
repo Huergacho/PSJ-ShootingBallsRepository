@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RangeWeapon : BaseWeapon
 {
-    [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private ProyectileStats proyectileStats;
     public ProyectileStats PoryectileStats => proyectileStats;
     public int BulletsAmount => bulletsAmount;
@@ -52,7 +51,6 @@ public class RangeWeapon : BaseWeapon
     }
     public virtual void Shoot()
     {
-        particleSystem.Play();
         if (canMakeAttack)
         {
 

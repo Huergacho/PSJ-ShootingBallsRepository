@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseEnemy : Actor
+public class BaseEnemy : Actor
 {
     [SerializeField] private EnemyStats enemyStats;
     protected bool hasDetectedEnemy;
