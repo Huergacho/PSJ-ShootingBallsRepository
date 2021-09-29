@@ -22,28 +22,54 @@ public abstract class BaseEnemy : Actor
         if (hasDetectedEnemy)
         {
             alertTime = alertTime + Time.deltaTime;
-            Attack();
             if (alertTime > enemyStats.AlertTimeDuration)
             {
                 hasDetectedEnemy = false;
                 alertTime = 0;
             }
         }
-        OnAnimation();
-
     }
     void DetectEnemy()
     {
-        if(followTarget != null)
+        Collider[] playerDetection = Physics.OverlapSphere(transform.position, enemyStats.DetectionDistance, enemyStats.FollowTargetLayerMask);
+        //foreach (var item in playerDetection)
+        //{
+        //    hasDetectedEnemy = true;
+        //    Move();
+        //}
+        if(playerDetection.Length >= 1)
         {
-         distance = Vector3.Distance(transform.position, followTarget.transform.position);
-            if (distance <= enemyStats.DetectionDistance || hasDetectedEnemy)
+            distance = Vector3.Distance(transform.position, followTarget.transform.position);
+            hasDetectedEnemy = true;
+            if (distance <= enemyStats.AttackDistance)
             {
-                hasDetectedEnemy = true;
+                MakeAttackAnimation();
+            }
+            else
+            {
                 Move();
             }
-
         }
+        else
+        {
+            animationManager.ChangeState(AnimationManager.State.idle);
+        }
+
+
+        //if(followTarget != null)
+        //{
+        // distance = Vector3.Distance(transform.position, followTarget.transform.position);
+        //    if (distance <= enemyStats.DetectionDistance && distance >= enemyStats.AttackDistance || hasDetectedEnemy)
+        //    {
+        //        hasDetectedEnemy = true;
+        //        Move();
+        //    }
+        //    else if (distance <= enemyStats.AttackDistance)
+        //    {
+        //        MakeAttackAnimation();
+        //    }
+
+        //}
     }
     protected override void OnHit()
     {
@@ -52,16 +78,5 @@ public abstract class BaseEnemy : Actor
     public void SetFollowTarget(Actor target)
     {
         followTarget = target;
-    }
-    protected void OnAnimation()
-    {
-        if (hasDetectedEnemy && animationManager != null)
-        {
-            animationManager.ChangeState(AnimationManager.State.run);
-        }
-        else if (animationManager != null && !hasDetectedEnemy)
-        {
-            animationManager.ChangeState(AnimationManager.State.idle);
-        }
     }
 }

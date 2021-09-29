@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleEnemy : BaseEnemy
+public class MeeleEnemy : BaseEnemy
 {
     protected override void Start()
     {
@@ -15,8 +15,10 @@ public class SimpleEnemy : BaseEnemy
     }
     public override void Move()
     {
+        base.Move();
         transform.LookAt(followTarget.transform);
         transform.position += transform.forward * speed * Time.deltaTime;
+       
     }
-    
+
 }

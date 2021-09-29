@@ -6,6 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     public Transform target;
     public Vector3 target_Offset;
+    [SerializeField] private float distanceToDetectObstacles;
     private void Start()
     {
         
@@ -21,6 +22,6 @@ public class FollowCamera : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, target.position + target_Offset, 0.1f);
     
-        } 
+        }
     }
 }

@@ -37,6 +37,12 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
 
     public virtual void Move()
     {
+        if (isRunning)
+        {
+        animationManager.ChangeState(AnimationManager.State.run);
+
+        }
+        else animationManager.ChangeState(AnimationManager.State.walk);
     }
 
     public virtual void TakeDamage(float damage)
@@ -86,5 +92,13 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
         {
             meeleWeapon.MeleeAttack();
         }
+    }
+    public void MakeAttackAnimation()
+    {
+        if (animationManager != null)
+        {
+            animationManager.ChangeState(AnimationManager.State.attack);
+        }
+
     }
 }

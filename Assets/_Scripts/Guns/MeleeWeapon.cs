@@ -6,11 +6,16 @@ public class MeleeWeapon : BaseWeapon
 {
     public void MeleeAttack()
     {
-        Collider[] hitInfo = Physics.OverlapSphere(firePoint.position, weaponStats.AttackRange, weaponStats.TargetLayer);
-        foreach (var item in hitInfo)
+        if (!hasAttacked)
         {
-            item.GetComponent<Actor>().TakeDamage(weaponStats.AttackDamage);
-            print($"le hice{weaponStats.AttackDamage} daño a " + item.name);
+            print ("attack");
+            Collider[] hitInfo = Physics.OverlapSphere(firePoint.position, weaponStats.AttackRange, weaponStats.TargetLayer);
+            foreach (var item in hitInfo)
+            {
+                item.GetComponent<Actor>().TakeDamage(weaponStats.AttackDamage);
+                //print($"le hice{weaponStats.AttackDamage} daño a " + item.name);
+            }
         }
+
     }
 }

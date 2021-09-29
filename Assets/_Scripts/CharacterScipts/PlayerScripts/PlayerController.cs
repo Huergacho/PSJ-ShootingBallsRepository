@@ -78,10 +78,8 @@ public class PlayerController : Actor
 
         if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  3f ,groundLayer))
         {
-        print("Salto");
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
-        print("No Salto");
     }
     public void ShowActualAmmo()
     {
@@ -96,25 +94,6 @@ public class PlayerController : Actor
     {
         transform.position = worldPos;
     }
-    public override void Attack()
-    {
-        base.Attack();
-        
-
-    }
-    public void MakeAttackAnimation()
-    {
-        if(animationManager != null)
-        {
-            animationManager.ChangeState(AnimationManager.State.attack);
-            print("Si Hay Animator");
-
-
-        }
-        else
-        {
-            print("No Hay Animator");
-        }
-
-    }
+   
+  
 }

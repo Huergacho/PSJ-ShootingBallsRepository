@@ -6,12 +6,13 @@ public class BaseTrap : MonoBehaviour
 {
     [SerializeField] private TrapStats trapStats;
     [SerializeField]private bool isActive;
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         
         if (isActive)
         {
-            if (other.gameObject.layer == trapStats.AffectedLayers.value)
+
+            if ((trapStats.AffectedLayers & 1 << other.gameObject.layer) != 0)
             {
                 other.gameObject.GetComponent<Actor>().TakeDamage(trapStats.Damage);
             }
