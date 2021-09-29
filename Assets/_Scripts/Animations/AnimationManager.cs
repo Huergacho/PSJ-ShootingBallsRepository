@@ -7,7 +7,7 @@ public class AnimationManager : MonoBehaviour
 {
    public enum State
     {
-        idle, run, walk,attack
+        idle, run, walk,attack,getHit
     }
     private  State currentState;
     private Animator animator;
@@ -35,6 +35,9 @@ public class AnimationManager : MonoBehaviour
                 break;
             case State.attack:
                 animator.SetTrigger("OnAttack");
+                break;
+            case State.getHit:
+                animator.SetTrigger("OnHit");
                 break;
 
         }

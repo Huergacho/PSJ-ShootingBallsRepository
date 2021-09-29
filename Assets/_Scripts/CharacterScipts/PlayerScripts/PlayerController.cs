@@ -11,6 +11,7 @@ public class PlayerController : Actor
     private bool canMove;
     private bool canCheck;
     private Vector3 target;
+    [SerializeField]private Transform lastSpawnPoint;
     private void Awake()
     {
         
@@ -19,7 +20,8 @@ public class PlayerController : Actor
     {
         base.Start();
         GameManager.instance.mainCharacter = this;
-        LevelGeneration.spawnPoint += Spawn;
+        LevelGeneration.spawnPoint += SpawnInDungeon;
+        lastSpawnPoint.position = transform.position;
     }
     protected override void Update()
     {
@@ -90,10 +92,16 @@ public class PlayerController : Actor
     {
         canMove = isMoving;
     }
-    private void Spawn(Vector3 worldPos)
+    private void SpawnInDungeon(Vector3 worldPos)
     {
         transform.position = worldPos;
     }
-   
-  
+    protected override void Respawn()
+    {
+        base.Respawn();
+        transform.position = lastSpawnPoint.position;
+    }
+
+
+
 }

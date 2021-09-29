@@ -19,20 +19,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     [SerializeField]protected BaseWeapon equipedWeapon;
     protected virtual void Start()
     {
-        if(rangedWeapon != null)
-        {
-            equipedWeapon = rangedWeapon;
-        }
-        else
-        {
-            equipedWeapon = meeleWeapon;
-        }
-        
-        animator = GetComponent<Animator>();
-        animationManager = GetComponent<AnimationManager>();
-        rb = GetComponent<Rigidbody>();
-        currentLife = actorStats.MaxLife;
-        speed = MaxSpeed;
+        SetStats();
     }
 
     public virtual void Move()
@@ -51,8 +38,9 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
         OnHit();
         if (currentLife <= 0)
         {
-            OnDestroy();
+            Respawn();
         }
+   
     }
     public virtual void GetHeal(float healAmount)
     {
@@ -70,13 +58,9 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
             speed = MaxSpeed;
         }
     }
-    void OnDestroy()
-    {
-        Destroy(gameObject);
-    }
     protected virtual void OnHit()
     {
-
+        animationManager.ChangeState(AnimationManager.State.getHit);
     }
     public void CanSprint(bool canRun)
     {
@@ -100,5 +84,25 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
             animationManager.ChangeState(AnimationManager.State.attack);
         }
 
+    }
+    protected virtual void Respawn()
+    {
+        SetStats();
+    }
+    private void SetStats()
+    {
+        if (rangedWeapon != null)
+        {
+            equipedWeapon = rangedWeapon;
+        }
+        else
+        {
+            equipedWeapon = meeleWeapon;
+        }
+        animator = GetComponent<Animator>();
+        animationManager = GetComponent<AnimationManager>();
+        rb = GetComponent<Rigidbody>();
+        currentLife = actorStats.MaxLife;
+        speed = MaxSpeed;
     }
 }

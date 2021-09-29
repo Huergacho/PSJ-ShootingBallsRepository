@@ -8,5 +8,9 @@ public class Spawner<T> : IFactory<T> where T  : MonoBehaviour
     {
         return GameObject.Instantiate(prefab);
     }
+    //public T CreateFromPool(string tag, Vector3 pos, Quaternion rotation)
+    //{
+    //    return GenericPool.Instance.SpawnFromPool(tag, pos, rotation);
+    //}
 
 }

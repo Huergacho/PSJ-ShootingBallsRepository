@@ -48,6 +48,19 @@ public class Bullet : MonoBehaviour, IPooleable
 
             }
         }
+    }    
+    private void OnCollisionEnter(Collision other)
+    {
+        if ((target & 1 << other.gameObject.layer) != 0)
+        {
+            TakeDamageCommand damageCommand = new TakeDamageCommand(other.gameObject.GetComponent<Actor>(),proyectileStats.ProyectileDamage);
+            damageCommand.Do();
+            if (!isDestroyed)
+            { 
+                DestroyActions();
+
+            }
+        }
     }
     private void DestroyActions()
     {

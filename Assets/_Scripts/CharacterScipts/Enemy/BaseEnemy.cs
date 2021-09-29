@@ -79,4 +79,9 @@ public class BaseEnemy : Actor
     {
         followTarget = target;
     }
+    protected override void Respawn()
+    {
+        base.Respawn();
+        Destroy(gameObject);
+    }
 }
