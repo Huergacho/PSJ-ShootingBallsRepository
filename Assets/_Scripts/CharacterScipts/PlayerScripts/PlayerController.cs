@@ -7,9 +7,11 @@ public class PlayerController : Actor
 {
     [SerializeField] private float jumpForceImpulse;
     [SerializeField] private LayerMask groundLayer;
-    public static event Action<int> ammoQuantity;
+    public static event Action<float> lifeUpdate;
     private bool canMove;
     private bool canCheck;
+    private Vector3 target;
+    [SerializeField]private Transform lastSpawnPoint;
     private void Awake()
     {
         
@@ -18,16 +20,16 @@ public class PlayerController : Actor
     {
         base.Start();
         GameManager.instance.mainCharacter = this;
-        LevelGeneration.spawnPoint += Spawn;
+        LevelGeneration.spawnPoint += SpawnInDungeon;
+        lastSpawnPoint.position = transform.position;
     }
     protected override void Update()
     {
 
         base.Update();
         MoveToMousePosition();
-        if(equipedWeapon.WeaponStats.IsRanged)
-        ShowActualAmmo();
-        Debug.DrawRay(transform.position, Vector3.down * 5f, Color.red);
+        ShowActualLife();
+        Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red);
         if (canMove == true)
         {
             if (isRunning)
@@ -43,17 +45,18 @@ public class PlayerController : Actor
         {
             animationManager?.ChangeState(AnimationManager.State.idle);
         }
+        
     }
     void MoveToMousePosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            var target = hitInfo.point;
+            target = hitInfo.point;
             target.y = transform.position.y;
             var distance = Vector3.Distance(transform.position, hitInfo.point);
-            if(distance >= 1f)
-            transform.LookAt(target);
+            if (distance >= 1f)
+                transform.LookAt(target);
         }
     }
     public void Move(Vector3 direction)
@@ -75,45 +78,29 @@ public class PlayerController : Actor
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  5f ,groundLayer))
+        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y + 3,transform.position.z), Vector3.down, out hit,  3f ,groundLayer))
         {
-        print("Salto");
             rb.AddForce(Vector3.up * jumpForceImpulse, ForceMode.Impulse);
         }
-        print("No Salto");
     }
-    public void ShowActualAmmo()
+    public void ShowActualLife()
     {
-        ammoQuantity?.Invoke(rangedWeapon.BulletsAmount);
-
+        lifeUpdate?.Invoke(currentLife);
     }
     public void isMoving(bool isMoving)
     {
         canMove = isMoving;
     }
-    private void Spawn(Vector3 worldPos)
+    private void SpawnInDungeon(Vector3 worldPos)
     {
         transform.position = worldPos;
     }
-    public override void Attack()
+    protected override void Respawn()
     {
-        base.Attack();
-        
-
+        base.Respawn();
+        transform.position = lastSpawnPoint.position;
     }
-    public void MakeAttackAnimation()
-    {
-        if(animationManager != null)
-        {
-            animationManager.ChangeState(AnimationManager.State.attack);
-            print("Si Hay Animator");
 
 
-        }
-        else
-        {
-            print("No Hay Animator");
-        }
 
-    }
 }

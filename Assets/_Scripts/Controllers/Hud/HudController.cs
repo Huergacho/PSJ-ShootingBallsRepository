@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-[RequireComponent(typeof (AmmoManager),typeof (ScoreManager))]
+using UnityEngine.UI;
+[RequireComponent(typeof (LifeHud),typeof (ScoreManager))]
 public class HudController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI ammoText;
+    [SerializeField] private Image lifeBar;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private PlayerController player;
-    [SerializeField] private AmmoManager ammoManager;
+    [SerializeField] private LifeHud ammoManager;
     [SerializeField] private ScoreManager scoreManager;
     private int actualAmmo;
     private void Start()
@@ -24,8 +25,8 @@ public class HudController : MonoBehaviour
         }
         else
         {
-            ammoManager.ShowAmmo(ammoText);
-            scoreManager.ShowScore(scoreText);
+            ammoManager.ShowLife(lifeBar);
+            scoreManager?.ShowScore(scoreText);
         }
     }
 }

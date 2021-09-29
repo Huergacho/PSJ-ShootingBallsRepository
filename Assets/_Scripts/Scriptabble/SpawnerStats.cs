@@ -10,4 +10,6 @@ public class SpawnerStats : ScriptableObject
     [SerializeField] private float maxSpawns;
     public float DistanceToActivate => distanceToActivate;
     [SerializeField] private float distanceToActivate;
+    public Vector3 MaxDistanceToSpawn => maxDistanceToSpawn;
+    [SerializeField] private Vector3 maxDistanceToSpawn;
 }

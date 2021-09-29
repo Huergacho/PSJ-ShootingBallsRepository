@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class HealPotion : BasePickUps
 {
-    [SerializeField] private HealingPotionStats healingStats;
-    private float healAmount => healingStats.HealAmount;
+    [SerializeField] private float healAmount;
     public override void DoEffect(GameObject target)
     {
       var targetActor = target.GetComponent<Actor>();

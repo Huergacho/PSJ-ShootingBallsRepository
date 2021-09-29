@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc358794a23894e45ba492ed984a2e2d, type: 3}
   m_Name: HealingPotionStats
   m_EditorClassIdentifier: 
-  healAmount: 10
+  effectDuration: 0.2
+  entitiesAffected:
+    serializedVersion: 2
+    m_Bits: 8

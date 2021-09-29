@@ -7,7 +7,7 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     [SerializeField] public AnimationManager animationManager;
     [SerializeField] protected RangeWeapon rangedWeapon;
     [SerializeField] protected MeleeWeapon meeleWeapon;
-    [SerializeField] protected ActorStats actorStats; //TODO, Dividir el actor stats entre vida y movimiento
+    [SerializeField] protected ActorStats actorStats;
     protected float speed;
     protected float currentLife;
     protected Rigidbody rb;
@@ -19,24 +19,17 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
     [SerializeField]protected BaseWeapon equipedWeapon;
     protected virtual void Start()
     {
-        if(rangedWeapon != null)
-        {
-            equipedWeapon = rangedWeapon;
-        }
-        else
-        {
-            equipedWeapon = meeleWeapon;
-        }
-        
-        animator = GetComponent<Animator>();
-        animationManager = GetComponent<AnimationManager>();
-        rb = GetComponent<Rigidbody>();
-        currentLife = actorStats.MaxLife;
-        speed = MaxSpeed;
+        SetStats();
     }
 
     public virtual void Move()
     {
+        if (isRunning)
+        {
+        animationManager.ChangeState(AnimationManager.State.run);
+
+        }
+        else animationManager.ChangeState(AnimationManager.State.walk);
     }
 
     public virtual void TakeDamage(float damage)
@@ -45,8 +38,9 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
         OnHit();
         if (currentLife <= 0)
         {
-            OnDestroy();
+            Respawn();
         }
+   
     }
     public virtual void GetHeal(float healAmount)
     {
@@ -64,13 +58,9 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
             speed = MaxSpeed;
         }
     }
-    void OnDestroy()
-    {
-        Destroy(gameObject);
-    }
     protected virtual void OnHit()
     {
-
+        animationManager.ChangeState(AnimationManager.State.getHit);
     }
     public void CanSprint(bool canRun)
     {
@@ -86,5 +76,33 @@ public class Actor : MonoBehaviour, IDamagable, IMovable
         {
             meeleWeapon.MeleeAttack();
         }
+    }
+    public void MakeAttackAnimation()
+    {
+        if (animationManager != null)
+        {
+            animationManager.ChangeState(AnimationManager.State.attack);
+        }
+
+    }
+    protected virtual void Respawn()
+    {
+        SetStats();
+    }
+    private void SetStats()
+    {
+        if (rangedWeapon != null)
+        {
+            equipedWeapon = rangedWeapon;
+        }
+        else
+        {
+            equipedWeapon = meeleWeapon;
+        }
+        animator = GetComponent<Animator>();
+        animationManager = GetComponent<AnimationManager>();
+        rb = GetComponent<Rigidbody>();
+        currentLife = actorStats.MaxLife;
+        speed = MaxSpeed;
     }
 }

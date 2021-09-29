@@ -15,8 +15,10 @@ public class SimpleEnemy : BaseEnemy
     }
     public override void Move()
     {
+        base.Move();
         transform.LookAt(followTarget.transform);
         transform.position += transform.forward * speed * Time.deltaTime;
+       
     }
-    
+
 }
