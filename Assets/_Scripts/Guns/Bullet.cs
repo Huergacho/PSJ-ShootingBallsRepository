@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour, IPooleable
     private float currentLifeTime;
     private GenericPool genericPool;
     private bool isDestroyed = false;
-    private LayerMask target;
+    [SerializeField]private LayerMask target;
 
     private void Start()
     {
@@ -59,6 +59,14 @@ public class Bullet : MonoBehaviour, IPooleable
             { 
                 DestroyActions();
 
+            }
+        }
+        else
+        {
+            if (!isDestroyed)
+            {
+
+            DestroyActions();
             }
         }
     }

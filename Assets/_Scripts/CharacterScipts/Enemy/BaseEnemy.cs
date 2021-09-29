@@ -14,6 +14,7 @@ public class BaseEnemy : Actor
     protected override void Start()
     {
         base.Start();
+        followTarget = GameManager.instance.mainCharacter;
     }
     // Update is called once per frame
     protected override void Update()
