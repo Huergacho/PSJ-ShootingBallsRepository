@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class Actor : MonoBehaviour, IDamagable, IMovable
+public abstract class Actor : MonoBehaviour, IDamagable, IMovable
 {
     [SerializeField] public AnimationManager animationManager;
     [SerializeField] protected RangeWeapon rangedWeapon;

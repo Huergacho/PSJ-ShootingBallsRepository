@@ -17,7 +17,11 @@ public class SimpleEnemy : BaseEnemy
     {
         base.Move();
         transform.LookAt(followTarget.transform);
+        if (canMove)
+        {
+
         transform.position += transform.forward * speed * Time.deltaTime;
+        }
        
     }
 

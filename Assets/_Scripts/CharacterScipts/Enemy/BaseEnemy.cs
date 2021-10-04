@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseEnemy : Actor
+public abstract class BaseEnemy : Actor
 {
     [SerializeField] private EnemyStats enemyStats;
     protected bool hasDetectedEnemy;
     protected float alertTime;
     [SerializeField]protected Actor followTarget;
     protected float distance;
-
-    // Start is called before the first frame update
+    protected bool canMove;
     protected override void Start()
     {
         base.Start();
@@ -33,11 +32,6 @@ public class BaseEnemy : Actor
     void DetectEnemy()
     {
         Collider[] playerDetection = Physics.OverlapSphere(transform.position, enemyStats.DetectionDistance, enemyStats.FollowTargetLayerMask);
-        //foreach (var item in playerDetection)
-        //{
-        //    hasDetectedEnemy = true;
-        //    Move();
-        //}
         if(playerDetection.Length >= 1)
         {
             distance = Vector3.Distance(transform.position, followTarget.transform.position);
@@ -56,21 +50,6 @@ public class BaseEnemy : Actor
             animationManager.ChangeState(AnimationManager.State.idle);
         }
 
-
-        //if(followTarget != null)
-        //{
-        // distance = Vector3.Distance(transform.position, followTarget.transform.position);
-        //    if (distance <= enemyStats.DetectionDistance && distance >= enemyStats.AttackDistance || hasDetectedEnemy)
-        //    {
-        //        hasDetectedEnemy = true;
-        //        Move();
-        //    }
-        //    else if (distance <= enemyStats.AttackDistance)
-        //    {
-        //        MakeAttackAnimation();
-        //    }
-
-        //}
     }
     protected override void OnHit()
     {
