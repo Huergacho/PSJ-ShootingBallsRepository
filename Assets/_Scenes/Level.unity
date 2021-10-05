@@ -24093,6 +24093,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db90250a1a97af940946c3c97ad188d5, type: 3}
+--- !u!1 &1806862677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 184679541423735765, guid: db90250a1a97af940946c3c97ad188d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1806862676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1806862678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806862677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12888.766, y: 5773.9727, z: 12689.502}
+  m_Center: {x: 0.0024414065, y: 0, z: 0.000030517578}
 --- !u!4 &1820832435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7271368348232978068, guid: 92c52a94263fb134d9012f2d05a74027,
