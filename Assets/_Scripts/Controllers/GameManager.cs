@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     }
     public void Pause(bool isPaused)
     {
+        gamePaused = isPaused;
         
         if (isPaused)
         {
@@ -48,10 +49,10 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene(1);
     }
     public void Victory()
     {
-        SceneManager.LoadScene("Victory");
+        SceneManager.LoadScene(2);
     }
 }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d07f4d40f935df840869c2ab2f7723c8, type: 3}
-  m_Name: CaveEnemySpawner
+  m_Name: EnemySpawner 2
   m_EditorClassIdentifier: 
-  spawnRate: 4
+  spawnRate: 3
   maxSpawns: 5
-  distanceToActivate: 20
+  distanceToActivate: 10
+  maxDistanceToSpawn: {x: 3, y: 0, z: 3}

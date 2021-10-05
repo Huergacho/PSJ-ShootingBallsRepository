@@ -39,9 +39,11 @@ public abstract class BaseEnemy : Actor
             if (distance <= enemyStats.AttackDistance)
             {
                 MakeAttackAnimation();
+                canMove = false;
             }
             else
             {
+                canMove = true;
                 Move();
             }
         }
