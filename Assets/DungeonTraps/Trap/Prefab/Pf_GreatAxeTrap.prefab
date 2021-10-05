@@ -202,6 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 432090}
   - component: {fileID: 4421007531133309320}
+  - component: {fileID: 8718082488294073450}
   m_Layer: 9
   m_Name: Pf_GreatAxeTrap
   m_TagString: Untagged
@@ -241,3 +242,17 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8718082488294073450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec9a8d9a47fd904f8b24b0ac82f9cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapStats: {fileID: 11400000, guid: b3b2bfa4c4d220740895f53d11155a56, type: 2}
+  isActive: 0

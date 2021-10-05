@@ -1134,85 +1134,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 448302, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448302, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 448304, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448304, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 448306, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.1935234
-      objectReference: {fileID: 0}
-    - target: {fileID: 448306, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448306, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448306, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.4444
-      objectReference: {fileID: 0}
-    - target: {fileID: 448308, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 448308, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 448308, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c11f75ea6385a4eb9f4f260aba0402, type: 3}
---- !u!1 &62231733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 148308, guid: 04c11f75ea6385a4eb9f4f260aba0402,
-    type: 3}
-  m_PrefabInstance: {fileID: 62231732}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &62231734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62231733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ec9a8d9a47fd904f8b24b0ac82f9cbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapStats: {fileID: 11400000, guid: b3b2bfa4c4d220740895f53d11155a56, type: 2}
-  isActive: 1
---- !u!65 &62231738
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62231733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.44685403, y: 1.8085734, z: 1.7723293}
-  m_Center: {x: 0.000007629373, y: 0.1462962, z: -0.016112834}
 --- !u!4 &69413653 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2077441867683948324, guid: 6687966e990fe7c43985f16ce35a788b,
@@ -14147,7 +14070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2b37e36e4ec3f42a53d5a347a4a2a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnerStats: {fileID: 11400000, guid: bcbab47a487b729449076b6d6ffada33, type: 2}
+  enemySpawnerStats: {fileID: 0}
   instanceEnemies:
   - {fileID: 6157839138612738585, guid: 58b6fe32a3c2440408f77cbf1a2b5db2, type: 3}
   - {fileID: 3414996086127471338, guid: 3d174ffc909833c44b4859365a660ce5, type: 3}
@@ -15343,8 +15266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseConsumable: {fileID: 11400000, guid: a99dde7442e23fc43b8e87708a28f40d, type: 2}
-  particles: {fileID: 566919188360746568, guid: 7a4cbdf892d3095418ed2584bdcda088,
-    type: 3}
+  doorToOpen: {fileID: 0}
   cristalToReplace: {fileID: 23175383}
 --- !u!199 &732776013
 ParticleSystemRenderer:

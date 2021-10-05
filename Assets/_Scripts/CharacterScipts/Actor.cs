@@ -60,7 +60,7 @@ public abstract class Actor : MonoBehaviour, IDamagable, IMovable
     }
     protected virtual void OnHit()
     {
-        animationManager.ChangeState(AnimationManager.State.getHit);
+        
     }
     public void CanSprint(bool canRun)
     {

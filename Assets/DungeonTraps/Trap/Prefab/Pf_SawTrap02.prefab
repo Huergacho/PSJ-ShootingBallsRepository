@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 448300}
   - component: {fileID: 11139774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pf_SawTrap02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 148300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.55}
   m_Children:
   - {fileID: 448304}
   - {fileID: 448306}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 448302}
   - component: {fileID: 3348302}
   - component: {fileID: 2348302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawBladeFrameCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148302}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 0, y: 0, z: 1.599}
+  m_LocalPosition: {x: -0, y: 0, z: 3.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448300}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 448304}
   - component: {fileID: 3348304}
   - component: {fileID: 2348304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawBladeFrameCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: -4.599}
+  m_LocalPosition: {x: -0, y: -0, z: -6.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448300}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 448306}
   - component: {fileID: 3348306}
   - component: {fileID: 2348306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawBladeFrameBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,8 +240,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: -0, z: -1.4444}
+  m_LocalScale: {x: 1, y: 1, z: 3.1935234}
   m_Children: []
   m_Father: {fileID: 448300}
   m_RootOrder: 1
@@ -306,7 +306,9 @@ GameObject:
   - component: {fileID: 448308}
   - component: {fileID: 3348308}
   - component: {fileID: 2348308}
-  m_Layer: 0
+  - component: {fileID: 62231738}
+  - component: {fileID: 62231734}
+  m_Layer: 9
   m_Name: SawBlade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448300}
@@ -376,6 +378,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &62231738
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44685403, y: 1.8085734, z: 1.7723293}
+  m_Center: {x: 0.000007629373, y: 0.1462962, z: -0.016112834}
+--- !u!114 &62231734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec9a8d9a47fd904f8b24b0ac82f9cbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapStats: {fileID: 11400000, guid: b3b2bfa4c4d220740895f53d11155a56, type: 2}
+  isActive: 1
 --- !u!1 &148310
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +416,7 @@ GameObject:
   - component: {fileID: 448310}
   - component: {fileID: 3348310}
   - component: {fileID: 2348310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawBladeFrameBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

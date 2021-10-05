@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EnemySpawner 3
   m_EditorClassIdentifier: 
   spawnRate: 2
-  maxSpawns: 4
+  maxSpawns: 3
   distanceToActivate: 10
   maxDistanceToSpawn: {x: 0, y: 0, z: 0}

@@ -601,6 +601,7 @@ GameObject:
   - component: {fileID: 136461538}
   - component: {fileID: 2320380672428623692}
   - component: {fileID: 7483819053175724274}
+  - component: {fileID: 136461536}
   m_Layer: 6
   m_Name: ChestMonsterPolyart
   m_TagString: Untagged
@@ -686,6 +687,25 @@ BoxCollider:
   m_Size: {x: 1, y: 1.1561548, z: 1}
   m_Center: {x: 0, y: 0.7616957, z: 0}
 --- !u!114 &7483819053175724274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798744183352039230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcf54ce321558145bb88b28d0f84138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationManager: {fileID: 136461538}
+  rangedWeapon: {fileID: 0}
+  meeleWeapon: {fileID: 1162082654}
+  actorStats: {fileID: 11400000, guid: 0adb3b2e1dafb3e4796eacd2161e0cdd, type: 2}
+  equipedWeapon: {fileID: 0}
+  enemyStats: {fileID: 11400000, guid: 3c4ebdb09e272ee43a0521c64f70d2f6, type: 2}
+  followTarget: {fileID: 0}
+--- !u!114 &136461536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

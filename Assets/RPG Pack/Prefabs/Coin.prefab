@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013555364002}
+  - component: {fileID: 270900849}
+  - component: {fileID: 270900851}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -23,14 +25,46 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000011365394840}
-  m_LocalRotation: {x: -0, y: 0.49642566, z: -0, w: 0.8680793}
+  m_LocalRotation: {x: 0, y: 0.49642864, z: 0, w: 0.8680775}
   m_LocalPosition: {x: 2.161, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4000010444600384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 59.492004, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 59.528, z: 0}
+--- !u!95 &270900849
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011365394840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 295cf6da6e3aa5d47abb82cd30836c4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &270900851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011365394840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2095933, y: 0.2839882, z: 0.18683982}
+  m_Center: {x: -0.019138385, y: 0.9584576, z: 0.008519262}
 --- !u!1 &1000013760068644
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,9 +36,6 @@ public class AnimationManager : MonoBehaviour
             case State.attack:
                 animator.SetTrigger("OnAttack");
                 break;
-            case State.getHit:
-                animator.SetTrigger("OnHit");
-                break;
 
         }
     }

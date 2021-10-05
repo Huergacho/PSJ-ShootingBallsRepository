@@ -743,7 +743,6 @@ GameObject:
   - component: {fileID: 2768073079247561589}
   - component: {fileID: 2768073079247561588}
   - component: {fileID: 2768073079247561592}
-  - component: {fileID: 2768073079247561593}
   m_Layer: 5
   m_Name: Hud
   m_TagString: Untagged
@@ -846,25 +845,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeBar: {fileID: 5909918437044525846}
-  scoreText: {fileID: 0}
   player: {fileID: 0}
-  lifeManager: {fileID: 2768073079247561593}
+  lifeManager: {fileID: 0}
   resumeButton: {fileID: 62608420}
   exitButton: {fileID: 1753692878}
   playButton: {fileID: 0}
---- !u!114 &2768073079247561593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2768073079247561591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2181252c5a4de04983a355b4dd9eda9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actualLife: 0
+  backToMenuButton: {fileID: 0}
 --- !u!1 &4712792699614444179
 GameObject:
   m_ObjectHideFlags: 0
