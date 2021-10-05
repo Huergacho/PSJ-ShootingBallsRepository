@@ -25,6 +25,14 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         mainCharacter?.gameObject.SetActive(canStartGame);
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            NextLevel(3);
+        }        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            NextLevel(2);
+        }
 
 
     }

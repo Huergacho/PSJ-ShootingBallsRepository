@@ -7575,6 +7575,11 @@ PrefabInstance:
       propertyPath: lastSpawnPoint
       value: 
       objectReference: {fileID: 993741368}
+    - target: {fileID: 1080291342444763920, guid: 067cbf8d58c2bce429fc5d4ceae0568f,
+        type: 3}
+      propertyPath: jumpForceImpulse
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1320364008077390783, guid: 067cbf8d58c2bce429fc5d4ceae0568f,
         type: 3}
       propertyPath: m_RootOrder
