@@ -19,6 +19,7 @@ public class PlayerController : Actor
     protected override void Start()
     {
         base.Start();
+        DontDestroyOnLoad(gameObject);
         GameManager.instance.mainCharacter = this;
         LevelGeneration.spawnPoint += SpawnInDungeon;
         lastSpawnPoint.position = transform.position;

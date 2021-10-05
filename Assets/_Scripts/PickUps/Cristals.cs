@@ -9,7 +9,7 @@ public class Cristals : BasePickUps
     public override void DoEffect(GameObject target)
     {
         base.DoEffect(target);
-        doorToOpen.ChangeDoorState(true);
+        doorToOpen?.ChangeDoorState(true);
         transform.position = cristalToReplace.transform.position;
         Destroy(cristalToReplace);
         enabled = false;

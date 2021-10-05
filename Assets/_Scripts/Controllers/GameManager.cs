@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     [SerializeField]private bool canStartGame = false;
     [SerializeField] private bool gamePaused;
+    private int currentScene;
     public bool GamePaused => gamePaused;
     public bool CanStartGame => canStartGame;
     //public SpawnWhenEmpty fullLevelIndicator;
@@ -50,13 +51,20 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        currentScene = 1;
     }
     public void Victory()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
+        currentScene = 3;
+    }
+    public void NextLevel(int level)
+    {
+        SceneManager.LoadScene(level);
     }
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        currentScene = 0;
     }
 }

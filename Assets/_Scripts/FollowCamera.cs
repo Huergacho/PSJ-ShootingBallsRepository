@@ -9,7 +9,7 @@ public class FollowCamera : MonoBehaviour
     [SerializeField] private float distanceToDetectObstacles;
     private void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
     void Update()
     {
